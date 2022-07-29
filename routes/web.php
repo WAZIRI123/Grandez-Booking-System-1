@@ -12,7 +12,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::namespace('App\Http\Livewire')->group(function () {
-
+        //? Routes that can be accessed only when logging in
+        Route::middleware(['verified'])->group(function () {
+            //? Route for dashboard page
+            Route::prefix('/dashboard')->namespace('Dashboard')->name('dashboard.')->group(function () {
+                //? Route for admin dashboard page
+                Route::prefix('/admin')->namespace('Admin')->middleware('role:admin')->name('admin.')->group(function () {
+                    //? Displays data statistics and to set up page about
+                    Route::get('/', Index::class)->name('index');
+    
+                });
+    
+            });
+        });
+//? Routes that can be accessed by logging in or without logging in
     Route::get('/', Index::class)->name('index');
     Route::prefix('/packagies')->namespace('Package')->name('packagies.')->group(function () {
         Route::get('/{package:slug}', Index::class)->name('index');

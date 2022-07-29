@@ -11,11 +11,10 @@ class Index extends Component
   public $package;
   public  $price;
   public $check_out;
-  public $p;
   public $minCheckOut;
   public $check_in;
   public $minCheckIn;
-  public  $perperson;
+  public  $perperson=1;
   public function mount(Package $package)
   {
       $this->package = $package;
@@ -37,11 +36,14 @@ class Index extends Component
           case 3:
             $this->price = 110;
             break;
+            case '':
+              $this->price = 180;
+              break;
           case $this->perperson > 3:
             $this->price = 100;
             break;
           default:
-            $this->price = 80;
+            $this->price =180;
         }
         break;
         // price of package number 2
@@ -53,6 +55,9 @@ class Index extends Component
           case 3:
             $this->price = 65;
             break;
+            case '':
+              $this->price = 95;
+              break;
           case $this->perperson > 3:
             $this->price = 55;
             break;
@@ -69,6 +74,9 @@ class Index extends Component
           case 3:
             $this->price = 75;
             break;
+            case '':
+              $this->price = 125;
+              break;
           case $this->perperson > 3:
             $this->price = 65;
             break;
@@ -85,6 +93,9 @@ class Index extends Component
           case 3:
             $this->price = 70;
             break;
+            case '':
+              $this->price = 120;
+              break;
           case $this->perperson > 3:
             $this->price = 65;
             break;
@@ -101,6 +112,9 @@ class Index extends Component
           case 3:
             $this->price = 60;
             break;
+            case '':
+              $this->price = 90;
+              break;
           case $this->perperson > 3:
             $this->price = 50;
             break;
@@ -117,6 +131,9 @@ class Index extends Component
           case 3:
             $this->price = 95;
             break;
+            case '':
+              $this->price = 160;
+              break;
           case $this->perperson > 3:
             $this->price = 85;
             break;

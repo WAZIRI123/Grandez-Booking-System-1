@@ -56,7 +56,7 @@
             </div>
           </nav>
 
-          <div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%; background-image: url('http://127.0.0.1:8000/storage/img/packages/packagesImg-5.png');
+          <div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%; background-image:url('../storage/img/packages/packagesImg-5.png');
           height: 500px;">
             <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed" style="background-color: rgba(0, 0, 0, 0.75);">
               <div class="flex justify-center items-center h-full">

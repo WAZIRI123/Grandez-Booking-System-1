@@ -32,130 +32,6 @@
             </div>
             
         </main>
-        <main class="w-full space-y-6 lg:col-span-8">
-            <div class="aspect-[16/9] overflow-hidden rounded-tl-2xl rounded-br-2xl relative z-10">
-                <img src="{{ asset("storage/$package->image") }}" class="w-full block hover:scale-110 transition-all duration-300" alt="{{ $package->name }}">
-            </div>
-            <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-show'></i>
-                    <span class="text-sm capitalize">{{ $package->views }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-star'></i>
-                    <span class="text-sm capitalize">{{ $package->rate }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-chat'></i>
-                    <span class="text-sm capitalize">{{ $package->rate }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-money'></i>
-                    <span class="text-sm capitalize">${{ $package->price }}/night</span>
-                </div>
-            </div>
-            <div class="prose sm:prose-base prose max-w-none prose-img:rounded-tr-xl prose-img:rounded-bl-xl prose-img:w-full">
-                <h1>{{ $package->name }}</h1>
-                <blockquote>
-                    {{ $package->description }}
-                </blockquote>
-                {!! $package->explanation !!}
-            </div>
-            
-        </main>
-        <main class="w-full space-y-6 lg:col-span-8">
-            <div class="aspect-[16/9] overflow-hidden rounded-tl-2xl rounded-br-2xl relative z-10">
-                <img src="{{ asset("storage/$package->image") }}" class="w-full block hover:scale-110 transition-all duration-300" alt="{{ $package->name }}">
-            </div>
-            <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-show'></i>
-                    <span class="text-sm capitalize">{{ $package->views }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-star'></i>
-                    <span class="text-sm capitalize">{{ $package->rate }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-chat'></i>
-                    <span class="text-sm capitalize">{{ $package->rate }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-money'></i>
-                    <span class="text-sm capitalize">${{ $package->price }}/night</span>
-                </div>
-            </div>
-            <div class="prose sm:prose-base prose max-w-none prose-img:rounded-tr-xl prose-img:rounded-bl-xl prose-img:w-full">
-                <h1>{{ $package->name }}</h1>
-                <blockquote>
-                    {{ $package->description }}
-                </blockquote>
-                {!! $package->explanation !!}
-            </div>
-            
-        </main>
-        <main class="w-full space-y-6 lg:col-span-8">
-            <div class="aspect-[16/9] overflow-hidden rounded-tl-2xl rounded-br-2xl relative z-10">
-                <img src="{{ asset("storage/$package->image") }}" class="w-full block hover:scale-110 transition-all duration-300" alt="{{ $package->name }}">
-            </div>
-            <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-show'></i>
-                    <span class="text-sm capitalize">{{ $package->views }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-star'></i>
-                    <span class="text-sm capitalize">{{ $package->rate }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-chat'></i>
-                    <span class="text-sm capitalize">{{ $package->rate }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-money'></i>
-                    <span class="text-sm capitalize">${{ $package->price }}/night</span>
-                </div>
-            </div>
-            <div class="prose sm:prose-base prose max-w-none prose-img:rounded-tr-xl prose-img:rounded-bl-xl prose-img:w-full">
-                <h1>{{ $package->name }}</h1>
-                <blockquote>
-                    {{ $package->description }}
-                </blockquote>
-                {!! $package->explanation !!}
-            </div>
-            
-        </main>
-        <main class="w-full space-y-6 lg:col-span-8">
-            <div class="aspect-[16/9] overflow-hidden rounded-tl-2xl rounded-br-2xl relative z-10">
-                <img src="{{ asset("storage/$package->image") }}" class="w-full block hover:scale-110 transition-all duration-300" alt="{{ $package->name }}">
-            </div>
-            <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-show'></i>
-                    <span class="text-sm capitalize">{{ $package->views }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-star'></i>
-                    <span class="text-sm capitalize">{{ $package->rate }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-chat'></i>
-                    <span class="text-sm capitalize">{{ $package->rate }}</span>
-                </div>
-                <div class="flex items-center gap-1 text-gray-800">
-                    <i class='bx bx-money'></i>
-                    <span class="text-sm capitalize">${{ $package->price }}/night</span>
-                </div>
-            </div>
-            <div class="prose sm:prose-base prose max-w-none prose-img:rounded-tr-xl prose-img:rounded-bl-xl prose-img:w-full">
-                <h1>{{ $package->name }}</h1>
-                <blockquote>
-                    {{ $package->description }}
-                </blockquote>
-                {!! $package->explanation !!}
-            </div>
-            
-        </main>
         <aside class="relative  lg:col-span-4 space-y-4 ">
             <div class="space-y-2">
                 <h2 class="text-2xl text-gray-800 font-bold">Reservation</h2>
@@ -325,12 +201,8 @@
                             </div>
                         </div>
                         <div class="form-control">
-                            <label for="total_packages" class="label">{{ __('Total packages') }}</label>
-                            <input class="w-full input" type="number" name="total_packages" id="total_packages"/>
-                        </div>
-                        <div class="form-control">
-                            <label for="total_packages" class="label">{{ $perperson }}</label>
-                            <input class="w-full input" type="number" min="1"    wire:model.debounce.0ms="perperson" id="perperson"/>
+                            <label for="total_packages" class="label">{{ __('Pax') }}</label>
+                            <input class="w-full input" type="number" min="1" wire:keyup='setPrice'   wire:model.debounce.0ms="perperson" id="perperson"/>
                         </div>
                         <div class="form-control">
                                     <label for="total_packages" class="label">{{ __('Price') }} </label>
@@ -348,9 +220,9 @@
                                     You must login first before making a reservation!
                                 </p>
                                 <div class="flex space-x-2 justify-center">
-                                    <a href="" class="btn">
-                                        Login
-                                    </a>
+                                <a href="{{ route('login') }}" class="btn">
+                                            Login
+                                        </a>
                                     <button type="button" x-on:click="open = false" class="btn btn-outline">
                                         Later
                                     </button>
