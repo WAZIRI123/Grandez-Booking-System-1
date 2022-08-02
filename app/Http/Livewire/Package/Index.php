@@ -2,26 +2,45 @@
 
 
 namespace App\Http\Livewire\Package;
+
+use App\Enums\ReservationStatus;
 use Carbon\Carbon;
 use App\Models\Package;
+use App\Models\Reservation;
 use Livewire\Component;
 
 class Index extends Component
 {
   public $package;
-  public  $price;
-  public $check_out;
-  public $minCheckOut;
+  public $price;
+  public $number_of_visitor=1;
   public $check_in;
-  public $minCheckIn;
+  public $minCheckIn ;
+  public $totalPrice;
   public  $perperson=1;
   public function mount(Package $package)
   {
       $this->package = $package;
       $this->price = $this->price;
       $this->minCheckIn = date('Y-m-d');
-      $this->minCheckOut = Carbon::parse(date('Y-m-d'))->add(1, 'day')->toDateString();
     $this->setPrice();
+  }
+  public function reservation()
+  {
+    $rules = [
+      'check_in' => ['required', 'date', 'after:' . Carbon::parse($this->minCheckIn)->yesterday()->toDateString()],
+      'number_of_visitor' => ['required', 'numeric'],
+      'price' => ['required', 'numeric'],
+  ];
+  $validatedData = $this->validate($rules);
+  $validatedData['package_id'] = $this->package->id;
+  $validatedData['date'] = date('Y-m-d');
+  $validatedData['total_price'] = $this->totalPrice;
+  $validatedData['user_id'] = auth()->id();
+  $validatedData['code'] = str(uniqid('Grandezza-') . date('Ymd'))->upper();
+  Reservation::create($validatedData);
+  $this->dispatchBrowserEvent('reservation:created');
+
   }
 
   public function setPrice()
@@ -142,6 +161,16 @@ class Index extends Component
         }
         break;
     }
+    $this->setTotalPrice();
+  }
+  public function setTotalPrice(){
+    if (is_numeric($this->number_of_visitor)) {
+      
+      $this->totalPrice=$this->price*$this->number_of_visitor;
+    }else {
+      $this->totalPrice=$this->price;
+    }
+   
   }
   public function render()
   {

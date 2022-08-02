@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'avatar' => 'img/avatar/a.png'
         ]);
 
-        $user->syncRoles('admin');
+        $user->syncRoles('user');
 
         $faker = \Faker\Factory::create();
 

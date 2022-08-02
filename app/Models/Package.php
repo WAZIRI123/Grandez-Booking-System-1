@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 class Package extends Model
 {
     use HasFactory;
     protected $fillable = [
-           'name', 'package_type_id', 'image','description','explanation','rate','views','slug','price'];
+        'name', 'package_type_id', 'image', 'description', 'explanation', 'rate', 'views', 'slug', 'price'
+    ];
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'], function ($query, $search) {
@@ -19,7 +22,7 @@ class Package extends Model
         });
     }
 
-            /**
+    /**
      * Get all of the reviews for the Package_type
      *
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo
@@ -29,11 +32,15 @@ class Package extends Model
     {
         return $this->belongsTo(PackageType::class);
     }
-    
+    public function reservations(): HasMany
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
     protected function name(): Attribute
-{
-    return Attribute::make(
-        set: fn($value) => ['slug' => Str::slug($value), 'name' => $value]
-    );
-}
+    {
+        return Attribute::make(
+            set: fn ($value) => ['slug' => Str::slug($value), 'name' => $value]
+        );
+    }
 }
