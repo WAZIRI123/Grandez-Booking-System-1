@@ -39,7 +39,7 @@
                         <div class="flex justify-between items-center">
                             <h3 class="font-bold font-['poppins'] text-lg text-gray-800">Activies</h3>
                             <a href="{{ route('activities.show') }}" class="flex items-center gap-1 group">
-                                <span class="text-sm text-gray-600 group-hover:underline">Learn more</span>
+                                <span class="text-sm text-gray-600 group-hover:underline">See more</span>
                                 <i class='bx bx-right-arrow-alt'></i>
                             </a>
                         </div>
@@ -74,7 +74,7 @@
                         <div class="flex justify-between items-center">
                             <h3 class="font-bold font-['poppins'] text-lg text-gray-800">Packagies</h3>
                             <a href="{{ route('activities.show') }}" class="flex items-center gap-1 group">
-                                <span class="text-sm text-gray-600 group-hover:underline">Learn more</span>
+                                <span class="text-sm text-gray-600 group-hover:underline">See more</span>
                                 <i class='bx bx-right-arrow-alt'></i>
                             </a>
                         </div>
@@ -107,9 +107,9 @@
                     </div>
                     <div class="space-y-2">
                         <div class="flex justify-between items-center">
-                            <h3 class="font-bold font-['poppins'] text-lg text-gray-800">Transfer</h3>
-                            <a href="{{ route('activities.show') }}" class="flex items-center gap-1 group">
-                                <span class="text-sm text-gray-600 group-hover:underline">Learn more</span>
+                            <h3 class="font-bold font-['poppins'] text-lg text-gray-800">Transfers & Car Rental</h3>
+                            <a href="{{ route('cars.show') }}" class="flex items-center gap-1 group">
+                                <span class="text-sm text-gray-600 group-hover:underline">See more</span>
                                 <i class='bx bx-right-arrow-alt'></i>
                             </a>
                         </div>

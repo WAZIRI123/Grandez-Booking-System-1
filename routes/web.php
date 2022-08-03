@@ -36,6 +36,11 @@ Route::namespace('App\Http\Livewire')->group(function () {
         Route::get('/{package:slug}', Index::class)->name('index');
        
     });
+    Route::prefix('/cars')->namespace('Car')->name('cars.')->group(function () {
+        Route::get('/show',Show::class)->name('show');
+        Route::get('/{car:slug}', Index::class)->name('index');
+       
+    });
 });
 
 
