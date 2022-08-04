@@ -39,10 +39,6 @@ class CarRentalSeeder extends Seeder
                 'Toyota Prado(2007)',
                 '100',
             ],
-            [
-                'Toyota Prado(2008)',
-                '260',
-            ],
     
         ];
         for ($i = 1; $i <= count($cars); $i++) {

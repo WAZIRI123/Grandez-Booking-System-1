@@ -19,6 +19,12 @@
                 <x-nav-link href="/cars" :active="Route::currentRouteNamed('cars.*') ? 'active' : ''" x-on:click="(e) => {e.preventDefault(); open = !open;}">Cars</x-nav-link>
             </div>
             @endif
+            @if(Route::currentRouteNamed('transfers.*'))
+            <i class="fa fa-angle-right"></i>
+            <div x-data="{ open: false }">
+                <x-nav-link href="/transfers" :active="Route::currentRouteNamed('transfers.*') ? 'active' : ''" x-on:click="(e) => {e.preventDefault(); open = !open;}">Transfers</x-nav-link>
+            </div>
+            @endif
         </div>
     </div>
 </nav>
