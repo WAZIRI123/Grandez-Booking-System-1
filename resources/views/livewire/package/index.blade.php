@@ -45,23 +45,30 @@
             <div x-data="{ open: false }">
                 <div class="grid gap-4">
                     <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="form-control">
-                            <label for="check_in" class="label">{{ __('Check In') }}</label>
-                            <input class="w-full input" type="date" name="check_in" id="check_in" />
-                        </div>
-                        <div class="form-control">
-                            <label for="check_out" class="label">{{ __('Check Out') }}</label>
-                            <input class="w-full input" type="date" name="check_out" id="check_out" />
-                        </div>
+                    <div class="form-control">
+                        <label for="check_in" class="label">{{ __('Check In') }}</label>
+                        <input class="w-full input" type="date" name="check_in" min="{{$minCheckIn}}"  wire:model='check_in' id="check_in" />
+                        @error('check_in')
+                        <span class="invalid">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="form-control">
-                        <label for="total_packages" class="label">{{ __('Total packages') }}</label>
-                        <input class="w-full input" type="number" name="total_packages" id="total_packages" />
+                        <label for="total_packages" class="label">{{ __('Pax') }}</label>
+                        <input class="w-full input" type="number" min="1" wire:keyup='setPrice' wire:model.debounce.0ms="perperson" id="perperson" />
                     </div>
                     <div class="form-control">
-                        <label for="total_packages" class="label">{{ __('Price') }}</label>
-                        <input class="w-full input" type="number" name="total_packages" id="total_packages" value="{{ $package->price }}" />
+                        <label for="total_packages" class="label">{{ __('no of visitors') }} </label>
+                        <input class="w-full input" type="number" min='1' name="number_of_visitor" id="number_of_visitor" wire:model="number_of_visitor"  wire:keyup='setTotalPrice' />
                     </div>
+                    <div class="form-control">
+                        <label for="total_packages" class="label">{{ __('Price') }} </label>
+                        <input class="w-full input" type="text" name="price" id="price" value="@convert($price)" readonly />
+                    </div>
+                </div>
+                @if ($check_in  && $totalPrice && $number_of_visitor && $perperson)
+                <p class="tracking-wide text-gray-600 sm:text-base text-sm">Total price to pay for <span class="font-bold">{{ $package->name }}</span> 
+                for total visitor of <span class="font-bold">{{$number_of_visitor}}</span>  is <span class="font-bold"></span> <span class="font-bold">${{$totalPrice}}</span></p>
+                @endif
                     <button x-on:click="open = true" class="btn">{{ __('Booking') }}</button>
                 </div>
                 <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
@@ -86,7 +93,7 @@
             @else
             <form action="#" method="POST" wire:submit.prevent='reservation' class="grid gap-4">
                 <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="form-control">
+                <div class="form-control">
                         <label for="check_in" class="label">{{ __('Check In') }}</label>
                         <input class="w-full input" type="date" name="check_in" min="{{$minCheckIn}}"  wire:model='check_in' id="check_in" />
                         @error('check_in')
@@ -99,14 +106,14 @@
                     </div>
                     <div class="form-control">
                         <label for="total_packages" class="label">{{ __('no of visitors') }} </label>
-                        <input class="w-full input" type="number" min='1' name="number_of_visitor" wire:keyup='setTotalPrice' id="number_of_visitor" wire:model="number_of_visitor"  />
+                        <input class="w-full input" type="number" min='1' name="number_of_visitor" id="number_of_visitor" wire:model="number_of_visitor"  wire:keyup='setTotalPrice' />
                     </div>
                     <div class="form-control">
                         <label for="total_packages" class="label">{{ __('Price') }} </label>
                         <input class="w-full input" type="text" name="price" id="price" value="@convert($price)" readonly />
                     </div>
                 </div>
-                @if ($check_in  && $totalPrice)
+                @if ($check_in  && $totalPrice && $number_of_visitor && $perperson)
                 <p class="tracking-wide text-gray-600 sm:text-base text-sm">Total price to pay for <span class="font-bold">{{ $package->name }}</span> 
                 for total visitor of <span class="font-bold">{{$number_of_visitor}}</span>  is <span class="font-bold"></span> <span class="font-bold">${{$totalPrice}}</span></p>
                 @endif
@@ -141,23 +148,30 @@
             <div x-data="{ open: false }">
                 <div class="grid gap-4">
                     <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="form-control">
-                            <label for="check_in" class="label">{{ __('Check In') }}</label>
-                            <input class="w-full input" type="date" name="check_in" id="check_in" />
-                        </div>
-                        <div class="form-control">
-                            <label for="check_out" class="label">{{ __('Check Out') }}</label>
-                            <input class="w-full input" type="date" name="check_out" id="check_out" />
-                        </div>
-                        <div class="form-control">
-                            <label for="total_packages" class="label">{{ __('Price') }}</label>
-                            <input class="w-full input" type="number" name="total_packages" id="total_packages" value="{{ $package->price }}" />
-                        </div>
+                    <div class="form-control">
+                        <label for="check_in" class="label">{{ __('Check In') }}</label>
+                        <input class="w-full input" type="date" name="check_in" min="{{$minCheckIn}}"  wire:model='check_in' id="check_in" />
+                        @error('check_in')
+                        <span class="invalid">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="form-control">
-                        <label for="total_packages" class="label">{{ __('Total packages') }}</label>
-                        <input class="w-full input" type="number" name="total_packages" id="total_packages" />
+                        <label for="total_packages" class="label">{{ __('Pax') }}</label>
+                        <input class="w-full input" type="number" min="1" wire:keyup='setPrice' wire:model.debounce.0ms="perperson" id="perperson" />
                     </div>
+                    <div class="form-control">
+                        <label for="total_packages" class="label">{{ __('no of visitors') }} </label>
+                        <input class="w-full input" type="number" min='1' name="number_of_visitor" id="number_of_visitor" wire:model="number_of_visitor"  wire:keyup='setTotalPrice' />
+                    </div>
+                    <div class="form-control">
+                        <label for="total_packages" class="label">{{ __('Price') }} </label>
+                        <input class="w-full input" type="text" name="price" id="price" value="@convert($price)" readonly />
+                    </div>
+                </div>
+                @if ($check_in  && $totalPrice && $number_of_visitor && $perperson)
+                <p class="tracking-wide text-gray-600 sm:text-base text-sm">Total price to pay for <span class="font-bold">{{ $package->name }}</span> 
+                for total visitor of <span class="font-bold">{{$number_of_visitor}}</span>  is <span class="font-bold"></span> <span class="font-bold">${{$totalPrice}}</span></p>
+                @endif
                     <button x-on:click="open = true" class="btn">{{ __('Booking') }}</button>
                 </div>
                 <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
@@ -186,20 +200,31 @@
             <div x-data="{ open: false }">
                 <div class="grid gap-4">
                     <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="form-control">
-                            <label for="check_in" class="label">{{ __('Check In') }}</label>
-                            <input class="w-full input" type="date" name="check_in" min="{{ $minCheckIn }}"  wire:model='check_in' id="check_in" />
-                        </div>
+                    <div class="form-control">
+                        <label for="check_in" class="label">{{ __('Check In') }}</label>
+                        <input class="w-full input" type="date" name="check_in" min="{{$minCheckIn}}"  wire:model='check_in' id="check_in" />
+                        @error('check_in')
+                        <span class="invalid">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="form-control">
                         <label for="total_packages" class="label">{{ __('Pax') }}</label>
                         <input class="w-full input" type="number" min="1" wire:keyup='setPrice' wire:model.debounce.0ms="perperson" id="perperson" />
                     </div>
                     <div class="form-control">
-                        <label for="total_packages" class="label">{{ __('Price') }} </label>
-                        <input class="w-full input" type="text" name="total_packages" id="total_packages" value="@convert($price)" readonly />
+                        <label for="total_packages" class="label">{{ __('no of visitors') }} </label>
+                        <input class="w-full input" type="number" min='1' name="number_of_visitor" id="number_of_visitor" wire:model="number_of_visitor"  wire:keyup='setTotalPrice' />
                     </div>
-                    <button x-on:click="open = true" class="btn">{{ __('Booking') }}</button>
+                    <div class="form-control">
+                        <label for="total_packages" class="label">{{ __('Price') }} </label>
+                        <input class="w-full input" type="text" name="price" id="price" value="@convert($price)" readonly />
+                    </div>
+                </div>
+                @if ($check_in  && $totalPrice && $number_of_visitor && $perperson)
+                <p class="tracking-wide text-gray-600 sm:text-base text-sm">Total price to pay for <span class="font-bold">{{ $package->name }}</span> 
+                for total visitor of <span class="font-bold">{{$number_of_visitor}}</span>  is <span class="font-bold"></span> <span class="font-bold">${{$totalPrice}}</span></p>
+                @endif
+                    <button x-on:click="open = true" class="btn" wire:click="lastpage">{{ __('Booking') }}</button>
                 </div>
                 <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
                     <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
@@ -214,9 +239,9 @@
                                 <a href="{{ route('login') }}" class="btn">
                                     Login
                                 </a>
-                                <button type="button" x-on:click="open = false" class="btn btn-outline">
-                                    Later
-                                </button>
+                                <a href="{{ route('register') }}" class="btn">
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             'email' => 'waziriallyamiri123@gmail.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'phone_number' => '08174835153', // password
+            'phone' => '08174835153', // password
             'remember_token' => Str::random(10),
             'avatar' => 'img/avatar/a.png'
         ]);
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
                 'email' => $faker->unique()->safeEmail(),
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-                'phone_number' => $faker->phoneNumber(), // password
+                'phone' => $faker->phoneNumber(), // password
                 'remember_token' => Str::random(10),
                 'avatar' => 'img/avatar/' . substr($faker->name(), 0, 1)  . '.png'
             ]);

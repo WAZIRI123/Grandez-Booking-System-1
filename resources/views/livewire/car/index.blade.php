@@ -19,7 +19,7 @@
                 </div>
                 <div class="flex items-center gap-1 text-gray-800">
                     <i class='bx bx-money'></i>
-                    <span class="text-sm capitalize">${{ $car->price }}/night</span>
+                    <span class="text-sm capitalize">${{ $car->price }}</span>
                 </div>
             </div>
             <div class="prose sm:prose-base prose max-w-none prose-img:rounded-tr-xl prose-img:rounded-bl-xl prose-img:w-full">
@@ -220,7 +220,7 @@
                 <p class="tracking-wide text-gray-600 sm:text-base text-sm">Total price to pay for rental of <span class="font-bold">{{ $car->name }}</span>
                     for total days of <span class="font-bold">{{$totalDays}}</span> is <span class="font-bold"></span> <span class="font-bold">${{$totalPrice}}</span></p>
                 @endif
-                    <button x-on:click="open = true" class="btn">{{ __('Booking') }}</button>
+                    <button x-on:click="open = true" class="btn" wire:click="lastpage">{{ __('Booking') }}</button>
                 </div>
                 <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
                     <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
@@ -235,9 +235,9 @@
                                 <a href="{{ route('login') }}" class="btn">
                                     Login
                                 </a>
-                                <button type="button" x-on:click="open = false" class="btn btn-outline">
-                                    Later
-                                </button>
+                                <a href="{{ route('register') }}" class="btn">
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -39,11 +39,18 @@ class AuthenticatedSessionController extends Controller
         if (auth()->user()->hasRole('receptionist')) {
             return to_route('dashboard.receptionist.index');
         }
-
-        return to_route('dashboard.user.index');
+        if (session('car')) {
+            return to_route('cars.index', session('car'));
+        }
+        if (session('activity')) {
+            return to_route('activities.index', session('activity'));
+        }
+        if (session('transfer')) {
+            return to_route('transfers.index', session('transfer'));
+        }
     }
 
-    
+
 
     /**
      * Destroy an authenticated session.

@@ -32,7 +32,10 @@ class Index extends Component
     $this->dispatchBrowserEvent('reservation:created');
 
     }
-      
+    public function lastpage(){
+
+      session(['transfer' => $this->transfer->slug]);
+    }
     public function render()
     {
         return view('livewire.transfer.index')->layout('layouts.main');

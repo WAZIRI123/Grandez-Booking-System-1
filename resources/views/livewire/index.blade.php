@@ -4,8 +4,8 @@
         <div class="container px-8 mx-auto space-y-10">
             <div class="space-y-2 flex flex-wrap items-center justify-between">
                 <div>
-                    <h1 class="sm:text-5xl text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">Our Best Packagies </h1>
-                    <p class="tracking-wide text-gray-600 sm:text-base text-sm">We offer the best packagies to accompany your rest</p>
+                    <h1 class="sm:text-5xl text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">Our Best Services </h1>
+                    <p class="tracking-wide text-gray-600 sm:text-base text-sm">We offer the best services to accompany your rest</p>
                 </div>
                 <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
                     <p class="tracking-wide text-gray-600 sm:text-base text-sm">Please Select Your Caterory of Interest  Below to Reserve Your Service! </p>

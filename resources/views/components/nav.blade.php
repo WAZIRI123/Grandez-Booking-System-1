@@ -6,7 +6,7 @@
         </a>
         <button x-on:click="menu = (window.innerWidth >= 768) ? true : !menu" class="md:hidden btn btn-icon"><i class='bx bx-menu'></i></button>
         <div x-show="menu" x-on:click.outside="menu = (window.innerWidth >= 768) ? true : false" x-transition.duration.300ms class="flex md:flex-row flex-col md:items-center md:space-x-10 md:space-y-0 space-y-2 md:relative absolute md:top-auto top-[120%] md:p-0 py-4  md:inset-x-auto inset-x-0 md:px-0 px-8 bg-white">
-        <x-nav-link :href="route('index')" :active="Route::currentRouteNamed('index') ? 'active' : ''">Home</x-nav-link>
+            <x-nav-link :href="route('index')" :active="Route::currentRouteNamed('index') ? 'active' : ''">Home</x-nav-link>
             @if(Route::currentRouteNamed('activities.*'))
             <i class="fa fa-angle-right"></i>
             <div x-data="{ open: false }">
@@ -25,6 +25,11 @@
                 <x-nav-link href="/transfers" :active="Route::currentRouteNamed('transfers.*') ? 'active' : ''" x-on:click="(e) => {e.preventDefault(); open = !open;}">Transfers</x-nav-link>
             </div>
             @endif
+            @auth
+            <a href="{{ $dashboardLink }}">
+                <img class="w-10 h-10 object-cover rounded-tr-xl rounded-bl-xl" src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="{{ auth()->user()->name }}">
+            </a>
+            @endauth
         </div>
     </div>
 </nav>

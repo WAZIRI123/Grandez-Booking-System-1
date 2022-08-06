@@ -158,7 +158,7 @@
                         <input class="w-full input" type="text" name="price" id="price" value="@convert($transfer->price)" readonly />
                     </div>
                 </div>
-                    <button x-on:click="open = true" class="btn">{{ __('Booking') }}</button>
+                    <button x-on:click="open = true" class="btn" wire:click="lastpage">{{ __('Booking') }}</button>
                 </div>
                 <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')" class="fixed inset-0 overflow-y-auto z-50">
                     <div x-show="open" x-transition.duration.300ms.opacity class="fixed inset-0 bg-black/50"></div>
@@ -173,9 +173,9 @@
                                 <a href="{{ route('login') }}" class="btn">
                                     Login
                                 </a>
-                                <button type="button" x-on:click="open = false" class="btn btn-outline">
-                                    Later
-                                </button>
+                                <a href="{{ route('register') }}" class="btn">
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Rules\PhoneNumber;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -33,22 +34,32 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', new PhoneNumber],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $validatedData['password'] = bcrypt($request->password);
+        $validatedData['avatar'] = 'img/avatar/' . substr($request->name, 0, 1) . '.png';
+        $validatedData['code'] = bin2hex(random_bytes(20));
+
+        $user = User::create($validatedData);
+
+        $user->syncRoles('user');
 
         event(new Registered($user));
 
         Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        if (session('car')) {
+            return to_route('cars.index', session('car'));
+        }
+        if (session('activity')) {
+            return to_route('activities.index', session('activity'));
+        }
+        if (session('transfer')) {
+            return to_route('transfers.index', session('transfer'));
+        }
     }
 }

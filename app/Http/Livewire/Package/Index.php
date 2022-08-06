@@ -163,6 +163,10 @@ class Index extends Component
     }
     $this->setTotalPrice();
   }
+  public function lastpage(){
+
+    session(['activity' => $this->package->slug]);
+  }
   public function setTotalPrice(){
     if (is_numeric($this->number_of_visitor)) {
       

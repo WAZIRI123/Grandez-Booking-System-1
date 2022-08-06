@@ -44,6 +44,7 @@ class Index extends Component
       if ($this->start_date >= $this->end_date) { 
         $this->reset('end_date');
     }
+
      $this->totalDays = Carbon::parse($this->start_date)->diffInDays($this->end_date);
       if ($this->totalDays !=null) {
         
@@ -52,6 +53,10 @@ class Index extends Component
         $this->totalPrice=$this->price;
       }
  
+    }
+    public function lastpage(){
+
+      session(['car' => $this->car->slug]);
     }
     public function render()
     {
