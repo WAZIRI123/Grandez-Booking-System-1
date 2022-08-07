@@ -19,7 +19,7 @@
                 </div>
                 <div class="flex items-center gap-1 text-gray-800">
                     <i class='bx bx-money'></i>
-                    <span class="text-sm capitalize">${{ $package->price }}/night</span>
+                    <span class="text-sm capitalize"></span>
                 </div>
             </div>
             <div class="prose sm:prose-base prose max-w-none prose-img:rounded-tr-xl prose-img:rounded-bl-xl prose-img:w-full">
@@ -132,7 +132,7 @@
                                 </p>
                             </div>
                             <div class="flex space-x-2 justify-center">
-                                <a href="" class="btn">
+                                <a href="{{route('dashboard.user.index')}}" class="btn">
                                     View Reservations
                                 </a>
                                 <button type="button" x-on:click="open = false" class="btn btn-outline">
@@ -239,7 +239,7 @@
                                 <a href="{{ route('login') }}" class="btn">
                                     Login
                                 </a>
-                                <a href="{{ route('register') }}" class="btn">
+                                <a href="{{ route('register') }}" class="btn btn-outline">
                                     Register
                                 </a>
                             </div>

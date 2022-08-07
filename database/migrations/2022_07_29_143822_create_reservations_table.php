@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('price');
             $table->string('total_price');
             $table->integer('number_of_visitor');
-            $table->integer('status')->default(ReservationStatus::Waiting->value);
+            $table->string('status')->default(ReservationStatus::Waiting->value);
             $table->timestamps();
         });
     }

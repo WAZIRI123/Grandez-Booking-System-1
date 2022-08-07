@@ -37,7 +37,7 @@
                                 </a>
                             </div>
                             <div class="grid gap-2">
-                                <a href="" class="{{ !Route::currentRouteNamed('dashboard.user.reservations.*') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
+                                <a href="{{ route('dashboard.user.reservations.index') }}" class="{{ !Route::currentRouteNamed('dashboard.user.reservations.*') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
                                     <i class="bx bx-receipt text-xl {{ !Route::currentRouteNamed('dashboard.user.reservations.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
                                     <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.reservations.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Reservation</span>
                                 </a>
@@ -45,13 +45,13 @@
                             <div class="grid gap-2">
                                 <a href="" class="{{ !Route::currentRouteNamed('dashboard.user.reviews.rooms.*') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
                                     <i class="bx bx-home-heart text-xl {{ !Route::currentRouteNamed('dashboard.user.reviews.rooms.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
-                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.reviews.rooms.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Room Reviews</span>
+                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.reviews.rooms.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Activities</span>
                                 </a>
                             </div>
                             <div class="grid gap-2">
                                 <a href="" class="{{ !Route::currentRouteNamed('dashboard.user.reviews.facilities.*') ? 'hover:bg-gray-100' : 'bg-gray-100' }} py-4 px-6 rounded-tr-xl rounded-bl-xl flex items-center gap-2 transition-all duration-300 group">
                                     <i class="bx bx-home-smile text-xl {{ !Route::currentRouteNamed('dashboard.user.reviews.facilities.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"></i>
-                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.reviews.facilities.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300">Facility Reviews</span>
+                                    <span class="font-semibold {{ !Route::currentRouteNamed('dashboard.user.reviews.facilities.*') ? 'text-gray-400 group-hover:text-gray-600' : 'text-gray-800' }} transition-all duration-300"> Reviews</span>
                                 </a>
                             </div>
                         </div>

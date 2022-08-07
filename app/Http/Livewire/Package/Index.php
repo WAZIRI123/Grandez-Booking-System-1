@@ -38,7 +38,7 @@ class Index extends Component
   $validatedData['total_price'] = $this->totalPrice;
   $validatedData['user_id'] = auth()->id();
   $validatedData['code'] = str(uniqid('Grandezza-') . date('Ymd'))->upper();
-  Reservation::create($validatedData);
+  Reservation::updateOrCreate(['package_id'=>$this->package->id,'check_in'=>$this->check_in,'user_id'=>auth()->user()->id],$validatedData);
   $this->dispatchBrowserEvent('reservation:created');
 
   }

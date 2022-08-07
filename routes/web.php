@@ -26,6 +26,11 @@ Route::namespace('App\Http\Livewire')->group(function () {
             Route::prefix('/user')->namespace('User')->middleware('role:user')->name('user.')->group(function () {
                 //? Displays data statistics
                 Route::get('/', Index::class)->name('index');
+                
+                Route::prefix('/reservation')->namespace('Reservation')->name('reservations.')->group(function () {
+                    Route::get('/', Index::class)->name('index');
+                    Route::get('/proof/{reservation:code}', [Proof::class, 'render'])->name('proof');
+                });
             });
         });
     });
