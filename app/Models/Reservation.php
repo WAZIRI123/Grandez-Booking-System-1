@@ -12,10 +12,10 @@ class Reservation extends Model
     use HasFactory;
     protected $fillable = [
         'check_in',
-        'package_id',
-        'number_of_visitor',
+        'activity_id',
         'price',
         'total_price',
+        'no_of_visitors',
         'date',
         'user_id',
         'status',
@@ -31,8 +31,8 @@ class Reservation extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function packages(): belongsTo
+    public function activities(): belongsTo
     {
-        return $this->belongsTo(Package::class,'package_id');
+        return $this->belongsTo(Activity::class,'activity_id');
     }
 }

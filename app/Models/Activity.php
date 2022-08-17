@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Package extends Model
+class Activity extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',  'image', 'day1','day2','day3','day4','day5','day6','day7','day8','slug','package_type_id','total_days'
+        'name','image', 'description', 'explanation','slug'
     ];
     public function scopeFilter($query, array $filters)
     {
@@ -27,11 +27,6 @@ class Package extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo
      */
-
-    public function packageTypes(): BelongsTo
-    {
-        return $this->belongsTo(PackageType::class);
-    }
     public function reservations(): HasMany
     {
         return $this->hasMany(Reservation::class);

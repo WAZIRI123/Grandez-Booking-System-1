@@ -7,15 +7,15 @@ use Livewire\Component;
 
 class Show extends Component
 {
-    public $activities;
+    public $packagies;
     public function mount()
     {
         $this->fill([
-        'activities' => Package::all(),
+        'packagies' => Package::all(),
         ]);
     }
     public function render()
     {
-        return view('livewire.package.show')->layout('layouts.main', ['title' => 'Activities  |Grandez']);
+        return view('livewire.package.show')->layout('layouts.main', ['title' => 'packagies  |Grandez']);
     }
 }

@@ -16,7 +16,7 @@ class Nav extends Component
      */
     public function __construct()
     {
-        $this->packagies = Package::latest()->orderBy('package_type_id')->orderBy('name')->get();
+
         
         if (auth()->check()) {
             if (auth()->user()->hasRole('user')) {

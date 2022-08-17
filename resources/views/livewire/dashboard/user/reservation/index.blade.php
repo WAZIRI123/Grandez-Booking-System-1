@@ -18,8 +18,8 @@
                 <tr class="bg-white border-b">
                     <td class="td font-medium text-gray-900">{{ $reservation->code }}</td>
                     <td class="td">{{ $reservation->check_in }}</td>
-                    <td class="td">{{ $reservation->packages->name }}</td>
-                    <td class="td">{{ $reservation->number_of_visitor }}</td>
+                    <td class="td">{{ $reservation->activities->name }}</td>
+                    <td class="td">{{ $reservation->no_of_visitors }}</td>
                     <td class="td">${{ $reservation->total_price }}</td>
                     <td class="td capitalize">{{ $reservation->status->value }}</td>
                     <td class="td flex space-x-2">

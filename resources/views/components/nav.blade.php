@@ -25,6 +25,12 @@
                 <x-nav-link href="/transfers" :active="Route::currentRouteNamed('transfers.*') ? 'active' : ''" x-on:click="(e) => {e.preventDefault(); open = !open;}">Transfers</x-nav-link>
             </div>
             @endif
+            @if(Route::currentRouteNamed('packagies.*'))
+            <i class="fa fa-angle-right"></i>
+            <div x-data="{ open: false }">
+                <x-nav-link href="/transfers" :active="Route::currentRouteNamed('packagies.*') ? 'active' : ''" x-on:click="(e) => {e.preventDefault(); open = !open;}">Packagies</x-nav-link>
+            </div>
+            @endif
             @auth
             <a href="{{ $dashboardLink }}">
                 <img class="w-10 h-10 object-cover rounded-tr-xl rounded-bl-xl" src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="{{ auth()->user()->name }}">

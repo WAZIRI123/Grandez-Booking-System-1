@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('package_types', function (Blueprint $table) {
+        Schema::create('package_reservations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('package_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('code');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->decimal('total_price',8,2);
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('package_types');
+        Schema::dropIfExists('package_reservations');
     }
 };

@@ -16,14 +16,18 @@ return new class extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('package_type_id')->constrained()->onDelete('cascade');
             $table->string('image');
-            $table->text('description');
+            $table->string('day1')->default('');
+            $table->string('day2',2555)->default('');
+            $table->string('day3',1118)->default('');
+            $table->string('day4',1118)->default('');
+            $table->string('day5',1118)->default('');
+            $table->string('day6',2555)->default('');
+            $table->string('day7',1118)->default('');
+            $table->string('day8',1118)->default('');
             $table->string("slug", 100)->nullable();
-            $table->text('explanation');
-            $table->decimal('price', 10, 2);;
-            $table->string('rate')->default(0);
-            $table->string('views')->default(0);
+            $table->string('total_days');
+            $table->foreignId('package_type_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

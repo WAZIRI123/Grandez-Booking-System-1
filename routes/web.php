@@ -36,11 +36,18 @@ Route::namespace('App\Http\Livewire')->group(function () {
     });
     //? Routes that can be accessed by logging in or without logging in
     Route::get('/', Index::class)->name('index');
-    Route::prefix('/activities')->namespace('Package')->name('activities.')->group(function () {
+    Route::prefix('/activities')->namespace('Activity')->name('activities.')->group(function () {
         Route::get('/show',Show::class)->name('show');
-        Route::get('/{package:slug}', Index::class)->name('index');
+        Route::get('/{activity:slug}', Index::class)->name('index');
        
     });
+    // packages
+    Route::prefix('/packagies')->namespace('Package')->name('packagies.')->group(function () {
+        Route::get('/show',Show::class)->name('show');
+        Route::get('/{package:slug}', Index::class)->name('index');
+    });
+
+    // cars
     Route::prefix('/cars')->namespace('Car')->name('cars.')->group(function () {
         Route::get('/show',Show::class)->name('show');
         Route::get('/{car:slug}', Index::class)->name('index');

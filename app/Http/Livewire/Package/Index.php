@@ -1,181 +1,516 @@
 <?php
 
-
 namespace App\Http\Livewire\Package;
 
-use App\Enums\ReservationStatus;
-use Carbon\Carbon;
 use App\Models\Package;
-use App\Models\Reservation;
+use App\Models\PackageActivities;
+use App\Models\PackageReservation;
+use App\Models\PackageReservationDetails;
+use App\Models\PackageType;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class Index extends Component
 {
   public $package;
-  public $price;
-  public $number_of_visitor=1;
-  public $check_in;
-  public $minCheckIn ;
+  public $perperson;
+  public $packageType;
+  public $type = 1;
+  public $accomodationPrice;
+  public $sumAccomodationPrice;
+  public $total_days;
   public $totalPrice;
-  public  $perperson=1;
+  public $packageActivities;
+  public $selectedActivity;
+  public $sumActivitiesPrice;
+  public $arrivalPrice;
+  public $departurePrice = 50;
+  public $activityPrice = 0;
+  public $minStart_date;
+  public $minEnd_date;
+  public $start_date;
+  public $end_date;
+  public $totalDays;
   public function mount(Package $package)
   {
-      $this->package = $package;
-      $this->price = $this->price;
-      $this->minCheckIn = date('Y-m-d');
-    $this->setPrice();
+    $this->packageActivities = PackageActivities::all();
+    $this->packageType = PackageType::all();
+    $this->package = $package;
+    $this->total_days = intval($package->total_days);
+    $this->minStart_date = date('Y-m-d');
   }
   public function reservation()
   {
+    $this->setTotalPrice();
     $rules = [
-      'check_in' => ['required', 'date', 'after:' . Carbon::parse($this->minCheckIn)->yesterday()->toDateString()],
-      'number_of_visitor' => ['required', 'numeric'],
-      'price' => ['required', 'numeric'],
-  ];
-  $validatedData = $this->validate($rules);
-  $validatedData['package_id'] = $this->package->id;
-  $validatedData['date'] = date('Y-m-d');
-  $validatedData['total_price'] = $this->totalPrice;
-  $validatedData['user_id'] = auth()->id();
-  $validatedData['code'] = str(uniqid('Grandezza-') . date('Ymd'))->upper();
-  Reservation::updateOrCreate(['package_id'=>$this->package->id,'check_in'=>$this->check_in,'user_id'=>auth()->user()->id],$validatedData);
-  $this->dispatchBrowserEvent('reservation:created');
-
+      'start_date' => ['required', 'date', 'after:' . Carbon::parse($this->minStart_date)->yesterday()->toDateString()],
+      'packageType' => ['required'],
+    ];
+    $validatedData = $this->validate($rules);
+    $validatedData['package_id'] = $this->package->id;
+    $validatedData['end_date'] = Carbon::parse($this->start_date)->addDay($this->totalDays)->toDateString();
+    $validatedData['total_price'] = $this->totalPrice;
+    $validatedData['user_id'] = auth()->id();
+    $validatedData['code'] = str(uniqid('Grandezza-') . date('Ymd'))->upper();
+    $reserveId = PackageReservation::updateOrCreate(['package_id' => $this->package->id, 'start_date' => $this->start_date], $validatedData);
+      foreach ($this->selectedActivity as $key => $value) {
+        foreach ($value as $key1 => $value1) {
+          if (array_filter($value) && $value1 != false) {
+        $details = [];
+        $details['activityId'] = $key;
+        $details['day'] = $key1;
+        $details['reservationId'] = $reserveId->id;
+        PackageReservationDetails::create($details);
+      }
+    }
   }
+    $this->dispatchBrowserEvent('reservation:created');
+  }
+  public function setActivitiPrice()
+  {
+    // foreach day do this later && have the  increaeting sum each time
+    foreach ($this->selectedActivity as $key => $value) {
+      if ($value !=false) {
+      foreach ($value as $key1 => $value1) {
+        if (array_filter($value) && $value1 != false) {
+          switch ($key) {
+              // price of activity number 1  
+            case '1':
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 170;
+                  break;
+                case '':
+                  $this->activityPrice = 125;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 225;
+                  break;
+                default:
+                  $this->activityPrice = 125;
+              }
+              break;
+              // price of activity number 2
+            case '2':
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 140;
+                  break;
+                case '':
+                  $this->activityPrice = 90;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 180;
+                  break;
+                default:
+                  $this->activityPrice = 90;
+              }
+              break;
+              // price of activity number 3
+            case '3':
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 160;
+                  break;
+                case '':
+                  $this->activityPrice = 95;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 195;
+                  break;
+                default:
+                  $this->activityPrice = 95;
+              }
+              break;
+              // price of activity number 4
 
-  public function setPrice()
+              // price of activity number 5
+            case '4':
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 160;
+                  break;
+                case '':
+                  $this->activityPrice = 95;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 225;
+                  break;
+                default:
+                  $this->activityPrice = 95;
+              }
+              break;
+              //
+            case '5':
+
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 240;
+                  break;
+                case '':
+                  $this->activityPrice = 180;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 330;
+                  break;
+                default:
+                  $this->activityPrice = 180;
+              }
+
+              break;
+              //
+            case '6':
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 160;
+                  break;
+                case '':
+                  $this->activityPrice = 95;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 225;
+                  break;
+                default:
+                  $this->activityPrice = 95;
+              }
+              break;
+              // 
+            case '7':
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 120;
+                  break;
+                case '':
+                  $this->activityPrice = 120;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 120;
+                  break;
+                default:
+                  $this->activityPrice = 120;
+              }
+              break;
+              // price of activity number 6
+            case '8':
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 180;
+                  break;
+                case '':
+                  $this->activityPrice = 120;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 240;
+                  break;
+                default:
+                  $this->activityPrice = 120;
+              }
+              break;
+            case '9':
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 160;
+                  break;
+                case '':
+                  $this->activityPrice = 105;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 210;
+                  break;
+                default:
+                  $this->activityPrice = 105;
+              }
+              break;
+            case '10':
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 250;
+                  break;
+                case '':
+                  $this->activityPrice = 160;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 285;
+                  break;
+                default:
+                  $this->activityPrice = 160;
+              }
+              break;
+            case '11':
+              switch ($this->perperson) {
+                case 2:
+                  $this->activityPrice = 100;
+                  break;
+                case '':
+                  $this->activityPrice = 50;
+                  break;
+                case $this->perperson >= 3:
+                  $this->activityPrice = 150;
+                  break;
+                default:
+                  $this->activityPrice = 50;
+              }
+              break;
+            case '12':
+              $this->activityPrice = 0;
+          }
+          $this->sumActivitiesPrice += $this->activityPrice;
+        }
+      }
+    }
+  }
+  }
+  public function setAccomodationPrice()
   {
     switch ($this->package->id) {
-        // price of package number 1   
-      case 1:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 120;
+      case '1':
+      case '2':
+        switch ($this->type) {
+            // price of activity number 1   
+          case '2':
+            switch ($this->perperson) {
+              case 2:
+                $this->accomodationPrice = 30;
+                break;
+              case '':
+                $this->accomodationPrice = 20;
+                break;
+              case $this->perperson >= 3:
+                $this->accomodationPrice = 45;
+                break;
+              default:
+                $this->accomodationPrice = 20;
+            }
             break;
-          case 3:
-            $this->price = 110;
+            // price of activity number 2
+          case '3':
+            switch ($this->perperson) {
+              case 2:
+                $this->accomodationPrice = 150;
+                break;
+              case '':
+                $this->accomodationPrice = 120;
+                break;
+              case $this->perperson >= 3:
+                $this->accomodationPrice = 180;
+                break;
+              default:
+                $this->accomodationPrice = 120;
+            }
             break;
-            case '':
-              $this->price = 180;
-              break;
-          case $this->perperson > 3:
-            $this->price = 100;
+            // price of activity number 3
+          case '1':
+            switch ($this->perperson) {
+              case 2:
+                $this->accomodationPrice = 800;
+                break;
+              case '':
+                $this->accomodationPrice = 520;
+                break;
+              case $this->perperson >= 3:
+                $this->accomodationPrice = 1040;
+                break;
+              default:
+                $this->accomodationPrice = 520;
+            }
             break;
-          default:
-            $this->price =180;
         }
         break;
-        // price of package number 2
-      case 2:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 80;
+      case '3':
+      case '4':
+        switch ($this->type) {
+            // price of activity number 1   
+          case '2':
+            switch ($this->perperson) {
+              case 2:
+                $this->accomodationPrice = 80;
+                break;
+              case '':
+                $this->accomodationPrice = 80;
+                break;
+              case $this->perperson >= 3:
+                $this->accomodationPrice = 95;
+                break;
+              default:
+                $this->accomodationPrice = 80;
+            }
             break;
-          case 3:
-            $this->price = 65;
+            // price of activity number 2
+          case '3':
+            switch ($this->perperson) {
+              case 2:
+                $this->accomodationPrice = 160;
+                break;
+              case '':
+                $this->accomodationPrice = 130;
+                break;
+              case $this->perperson >= 3:
+                $this->accomodationPrice = 185;
+                break;
+              default:
+                $this->accomodationPrice = 130;
+            }
             break;
-            case '':
-              $this->price = 95;
-              break;
-          case $this->perperson > 3:
-            $this->price = 55;
+            // price of activity number 3
+          case '1':
+            switch ($this->perperson) {
+              case 2:
+                $this->accomodationPrice = 680;
+                break;
+              case '':
+                $this->accomodationPrice = 625;
+                break;
+              case $this->perperson >= 3:
+                $this->accomodationPrice = 750;
+                break;
+              default:
+                $this->accomodationPrice = 625;
+            }
             break;
-          default:
-            $this->price = 95;
         }
         break;
-        // price of package number 3
-      case 3:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 85;
-            break;
-          case 3:
-            $this->price = 75;
-            break;
-            case '':
-              $this->price = 125;
-              break;
-          case $this->perperson > 3:
-            $this->price = 65;
-            break;
-          default:
-            $this->price = 125;
-        }
-        break;
-        // price of package number 4
-      case 4:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 80;
-            break;
-          case 3:
-            $this->price = 70;
-            break;
-            case '':
-              $this->price = 120;
-              break;
-          case $this->perperson > 3:
-            $this->price = 65;
-            break;
-          default:
-            $this->price = 120;
-        }
-        break;
-        // price of package number 5
-      case 5:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 70;
-            break;
-          case 3:
-            $this->price = 60;
-            break;
-            case '':
-              $this->price = 90;
-              break;
-          case $this->perperson > 3:
-            $this->price = 50;
-            break;
-          default:
-            $this->price = 90;
-        }
-        break;
-        // price of package number 6
-      case 6:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 125;
-            break;
-          case 3:
-            $this->price = 95;
-            break;
-            case '':
-              $this->price = 160;
-              break;
-          case $this->perperson > 3:
-            $this->price = 85;
-            break;
-          default:
-            $this->price = 160;
-        }
-        break;
-    }
-    $this->setTotalPrice();
-  }
-  public function lastpage(){
 
-    session(['activity' => $this->package->slug]);
-  }
-  public function setTotalPrice(){
-    if (is_numeric($this->number_of_visitor)) {
-      
-      $this->totalPrice=$this->price*$this->number_of_visitor;
-    }else {
-      $this->totalPrice=$this->price;
+      case '5':
+      case '6':
+        switch ($this->type) {
+            // price of activity number 1   
+          case '2':
+            switch ($this->perperson) {
+              case 2:
+                $this->accomodationPrice = 58;
+                break;
+              case '':
+                $this->accomodationPrice = 40;
+                break;
+              case $this->perperson >= 3:
+                $this->accomodationPrice = 77;
+                break;
+              default:
+                $this->accomodationPrice = 40;
+            }
+            break;
+            // price of activity number 2
+          case '3':
+            switch ($this->perperson) {
+              case 2:
+                $this->accomodationPrice = 200;
+                break;
+              case '':
+                $this->accomodationPrice = 180;
+                break;
+              case $this->perperson >= 3:
+                $this->accomodationPrice = 235;
+                break;
+              default:
+                $this->accomodationPrice = 180;
+            }
+            break;
+            // price of activity number 3
+          case '1':
+            switch ($this->perperson) {
+              case 2:
+                $this->accomodationPrice = 1790;
+                break;
+              case '':
+                $this->accomodationPrice = 1620;
+                break;
+              case $this->perperson >= 3:
+                $this->accomodationPrice = 2060;
+                break;
+              default:
+                $this->accomodationPrice = 1620;
+            }
+            break;
+        }
+        break;
     }
-   
+
+    $this->sumAccomodationPrice = $this->accomodationPrice * floor($this->total_days);
   }
+  public function setArrivalPrice()
+  {
+    switch ($this->package->id) {
+      case '1':
+      case '2':
+        switch ($this->type) {
+            // price of activity number 1   
+          case '3':
+          case '2':
+            switch ($this->perperson) {
+              case 2:
+                $this->arrivalPrice = 20;
+                break;
+              case '':
+                $this->arrivalPrice = 20;
+                break;
+              case $this->perperson >= 3:
+                $this->arrivalPrice = 20;
+                break;
+              default:
+                $this->arrivalPrice = 20;
+            }
+            break;
+            // price of activity number 2
+          case '1':
+            switch ($this->perperson) {
+              case 2:
+                $this->arrivalPrice = 35;
+                break;
+              case '':
+                $this->arrivalPrice = 35;
+                break;
+              case $this->perperson >= 3:
+                $this->arrivalPrice = 35;
+                break;
+              default:
+                $this->arrivalPrice = 35;
+            }
+            break;
+        }
+        break;
+      case '3':
+      case '4':
+      case '5':
+      case '6':
+        switch ($this->type) {
+            // price of activity number 1   
+          case '3':
+          case '2':
+          case '1':
+            switch ($this->perperson) {
+              case 2:
+                $this->arrivalPrice = 50;
+                break;
+              case '':
+                $this->arrivalPrice = 50;
+                break;
+              case $this->perperson >= 3:
+                $this->arrivalPrice = 50;
+                break;
+              default:
+                $this->arrivalPrice = 50;
+            }
+            break;
+        }
+    }
+  }
+
+  public function setTotalPrice()
+  {
+    $this->setArrivalPrice();
+    $this->setAccomodationPrice();
+    $this->setActivitiPrice();
+    if ($this->perperson>0 && is_numeric($this->perperson) ) {
+      $this->totalPrice = 
+      ($this->sumActivitiesPrice + $this->sumAccomodationPrice + $this->arrivalPrice + $this->departurePrice) * $this->perperson;
+    }
+  }
+  public function lastpage()
+  {
+
+    session(['package' => $this->package->slug]);
+  }
+
   public function render()
   {
     return view('livewire.package.index')->layout('layouts.main');

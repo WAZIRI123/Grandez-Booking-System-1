@@ -8,12 +8,15 @@
                     <p class="tracking-wide text-gray-600 sm:text-base text-sm">We offer the best services to accompany your rest</p>
                 </div>
                 <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
-                    <p class="tracking-wide text-gray-600 sm:text-base text-sm">Please Select Your Caterory of Interest  Below to Reserve Your Service! </p>
+                    <p class="tracking-wide text-gray-600 sm:text-base text-sm">Please Select Your Caterory of Interest Below to Reserve Your Service! </p>
                 </div>
             </div>
             <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
                 <!-- start -->
                 <div class="space-y-4">
+                    <div class="bg-gray-200 text-2xl text-gray-800 font-bold  flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
+                        <h1>Activities</h1>
+                    </div>
                     <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                         <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="{{ asset('storage/img/packages/packagesImg-10.png') }}" alt="">
                     </div>
@@ -49,8 +52,11 @@
                 <!-- end -->
                 <!-- start -->
                 <div class="space-y-4">
+                    <div class="bg-gray-200 text-2xl text-gray-800 font-bold  flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
+                        <h1>Packagies</h1>
+                    </div>
                     <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
-                        <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="{{ asset('storage/img/packages/packagesImg-10.png') }}" alt="">
+                        <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="{{ asset('storage/img/packages/packagesImg-12.jpg') }}" alt="">
                     </div>
                     <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
                         <div class="flex items-center gap-1 text-gray-800">
@@ -73,7 +79,7 @@
                     <div class="space-y-2">
                         <div class="flex justify-between items-center">
                             <h3 class="font-bold font-['poppins'] text-lg text-gray-800">Packagies</h3>
-                            <a href="{{ route('activities.show') }}" class="flex items-center gap-1 group">
+                            <a href="{{ route('packagies.show') }}" class="flex items-center gap-1 group">
                                 <span class="text-sm text-gray-600 group-hover:underline">See more</span>
                                 <i class='bx bx-right-arrow-alt'></i>
                             </a>
@@ -84,6 +90,9 @@
                 <!-- end -->
                 <!-- start -->
                 <div class="space-y-4">
+                <div class="bg-gray-200 text-2xl text-gray-800 font-bold  flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
+           <h1>Transfers & Car Rental</h1>
+            </div>
                     <div class="aspect-[8/6]  w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
                         <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="{{ asset('storage/img/packages/packagesImg-11.png') }}" alt="">
                     </div>

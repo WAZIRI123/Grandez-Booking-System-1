@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('package_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('activity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->date('date');
             $table->date('check_in');
+            $table->integer('no_of_visitors');
             $table->string('price');
             $table->string('total_price');
-            $table->integer('number_of_visitor');
             $table->string('status')->default(ReservationStatus::Waiting->value);
             $table->timestamps();
         });

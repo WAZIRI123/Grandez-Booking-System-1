@@ -9,11 +9,11 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    public $packageType;
+  
     public function mount()
     {
         $this->fill([
-        'packageType' => PackageType::all(),
+       
         ]);
     }
 

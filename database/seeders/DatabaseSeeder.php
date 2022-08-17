@@ -19,9 +19,11 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             TransferSeeder::class,
-            PackageSeeder::class,
+            ActivitySeeder::class,
             carRentalSeeder::class,
+            PackageSeeder::class,
             PackageTypeSeeder::class,
+            PackageActivitiesSeeder::class,
         ]);
     }
 }
