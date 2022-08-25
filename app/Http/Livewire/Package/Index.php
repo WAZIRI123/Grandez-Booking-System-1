@@ -24,7 +24,7 @@ class Index extends Component
   public $selectedActivity;
   public $sumActivitiesPrice;
   public $arrivalPrice;
-  public $departurePrice = 50;
+  public $departurePrice = 20;
   public $activityPrice = 0;
   public $minStart_date;
   public $minEnd_date;
@@ -53,212 +53,216 @@ class Index extends Component
     $validatedData['user_id'] = auth()->id();
     $validatedData['code'] = str(uniqid('Grandezza-') . date('Ymd'))->upper();
     $reserveId = PackageReservation::updateOrCreate(['package_id' => $this->package->id, 'start_date' => $this->start_date], $validatedData);
-      foreach ($this->selectedActivity as $key => $value) {
-        foreach ($value as $key1 => $value1) {
-          if (array_filter($value) && $value1 != false) {
-        $details = [];
-        $details['activityId'] = $key;
-        $details['day'] = $key1;
-        $details['reservationId'] = $reserveId->id;
-        PackageReservationDetails::create($details);
+    foreach ($this->selectedActivity as $key => $value) {
+      foreach ($value as $key1 => $value1) {
+        if (array_filter($value) && $value1 != false) {
+          $details = [];
+          $details['activityId'] = $key;
+          $details['day'] = $key1;
+          $details['reservationId'] = $reserveId->id;
+          PackageReservationDetails::create($details);
+        }
       }
     }
-  }
     $this->dispatchBrowserEvent('reservation:created');
   }
   public function setActivitiPrice()
   {
-    // foreach day do this later && have the  increaeting sum each time
-    foreach ($this->selectedActivity as $key => $value) {
-      if ($value !=false) {
-      foreach ($value as $key1 => $value1) {
-        if (array_filter($value) && $value1 != false) {
-          switch ($key) {
-              // price of activity number 1  
-            case '1':
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 170;
-                  break;
-                case '':
-                  $this->activityPrice = 125;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 225;
-                  break;
-                default:
-                  $this->activityPrice = 125;
-              }
-              break;
-              // price of activity number 2
-            case '2':
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 140;
-                  break;
-                case '':
-                  $this->activityPrice = 90;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 180;
-                  break;
-                default:
-                  $this->activityPrice = 90;
-              }
-              break;
-              // price of activity number 3
-            case '3':
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 160;
-                  break;
-                case '':
-                  $this->activityPrice = 95;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 195;
-                  break;
-                default:
-                  $this->activityPrice = 95;
-              }
-              break;
-              // price of activity number 4
 
-              // price of activity number 5
-            case '4':
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 160;
-                  break;
-                case '':
-                  $this->activityPrice = 95;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 225;
-                  break;
-                default:
-                  $this->activityPrice = 95;
-              }
-              break;
-              //
-            case '5':
+      // foreach day do this later && have the  increaeting sum each time
+      if ($this->selectedActivity > 0) {
+        foreach ($this->selectedActivity as $key => $value) {
+          if ($value != false) {
+            foreach ($value as $key1 => $value1) {
+              if (array_filter($value) && $value1 != false) {
+                switch ($key) {
+                    // price of activity number 1  
+                  case '1'://prison island
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 170;
+                        break;
+                      case '':
+                        $this->activityPrice = 125;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 225;
+                        break;
+                      default:
+                        $this->activityPrice = 125;
+                    }
+                    break;
+                    // price of activity number 2
+                  case '2'://spice tour
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 140;
+                        break;
+                      case '':
+                        $this->activityPrice = 90;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 180;
+                        break;
+                      default:
+                        $this->activityPrice = 90;
+                    }
+                    break;
+                    // price of activity number 3
+                  case '3'://stone town tour
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 160;
+                        break;
+                      case '':
+                        $this->activityPrice = 95;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 195;
+                        break;
+                      default:
+                        $this->activityPrice = 95;
+                    }
+                    break;
+                    // price of activity number 4
 
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 240;
-                  break;
-                case '':
-                  $this->activityPrice = 180;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 330;
-                  break;
-                default:
-                  $this->activityPrice = 180;
-              }
+                    // price of activity number 5
+                  case '4'://swim with the turtles
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 160;
+                        break;
+                      case '':
+                        $this->activityPrice = 95;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 225;
+                        break;
+                      default:
+                        $this->activityPrice = 95;
+                    }
+                    break;
+                    //
+                  case '5'://kuza carve
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 160;
+                        break;
+                      case '':
+                        $this->activityPrice = 95;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 225;
+                        break;
+                      default:
+                        $this->activityPrice = 95;
+                    }
 
-              break;
-              //
-            case '6':
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 160;
-                  break;
-                case '':
-                  $this->activityPrice = 95;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 225;
-                  break;
-                default:
-                  $this->activityPrice = 95;
+                    break;
+                    //
+                  case '6'://the rock restourant
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 120;
+                        break;
+                      case '':
+                        $this->activityPrice = 120;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 120;
+                        break;
+                      default:
+                        $this->activityPrice = 120;
+                    }
+                    break;
+                    // 
+                  case '7'://jozani forest
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 160;
+                        break;
+                      case '':
+                        $this->activityPrice = 105;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 210;
+                        break;
+                      default:
+                        $this->activityPrice = 105;
+                    }
+                    break;
+                    // price of activity number 6
+                  case '8'://nakupenda sandbank
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 250;
+                        break;
+                      case '':
+                        $this->activityPrice = 160;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 285;
+                        break;
+                      default:
+                        $this->activityPrice = 160;
+                    }
+                    break;
+                  case '9'://donation
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 100;
+                        break;
+                      case '':
+                        $this->activityPrice = 50;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 150;
+                        break;
+                      default:
+                        $this->activityPrice = 50;
+                    }
+                    break;
+                  
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 250;
+                        break;
+                      case '':
+                        $this->activityPrice = 160;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 285;
+                        break;
+                      default:
+                        $this->activityPrice = 160;
+                    }
+                    break;
+     
+                    switch ($this->perperson) {
+                      case 2:
+                        $this->activityPrice = 100;
+                        break;
+                      case '':
+                        $this->activityPrice = 50;
+                        break;
+                      case $this->perperson >= 3:
+                        $this->activityPrice = 150;
+                        break;
+                      default:
+                        $this->activityPrice = 50;
+                    }
+                    break;
+                  case '12'://rest
+                    $this->activityPrice = 0;
+                }
+                $this->sumActivitiesPrice += $this->activityPrice;
+
               }
-              break;
-              // 
-            case '7':
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 120;
-                  break;
-                case '':
-                  $this->activityPrice = 120;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 120;
-                  break;
-                default:
-                  $this->activityPrice = 120;
-              }
-              break;
-              // price of activity number 6
-            case '8':
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 180;
-                  break;
-                case '':
-                  $this->activityPrice = 120;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 240;
-                  break;
-                default:
-                  $this->activityPrice = 120;
-              }
-              break;
-            case '9':
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 160;
-                  break;
-                case '':
-                  $this->activityPrice = 105;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 210;
-                  break;
-                default:
-                  $this->activityPrice = 105;
-              }
-              break;
-            case '10':
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 250;
-                  break;
-                case '':
-                  $this->activityPrice = 160;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 285;
-                  break;
-                default:
-                  $this->activityPrice = 160;
-              }
-              break;
-            case '11':
-              switch ($this->perperson) {
-                case 2:
-                  $this->activityPrice = 100;
-                  break;
-                case '':
-                  $this->activityPrice = 50;
-                  break;
-                case $this->perperson >= 3:
-                  $this->activityPrice = 150;
-                  break;
-                default:
-                  $this->activityPrice = 50;
-              }
-              break;
-            case '12':
-              $this->activityPrice = 0;
+            }
           }
-          $this->sumActivitiesPrice += $this->activityPrice;
         }
       }
-    }
-  }
+    
   }
   public function setAccomodationPrice()
   {
@@ -267,7 +271,7 @@ class Index extends Component
       case '2':
         switch ($this->type) {
             // price of activity number 1   
-          case '2':
+          case '2': //bu
             switch ($this->perperson) {
               case 2:
                 $this->accomodationPrice = 30;
@@ -283,7 +287,7 @@ class Index extends Component
             }
             break;
             // price of activity number 2
-          case '3':
+          case '3'://standard
             switch ($this->perperson) {
               case 2:
                 $this->accomodationPrice = 150;
@@ -299,7 +303,7 @@ class Index extends Component
             }
             break;
             // price of activity number 3
-          case '1':
+          case '1'://lux
             switch ($this->perperson) {
               case 2:
                 $this->accomodationPrice = 800;
@@ -320,7 +324,7 @@ class Index extends Component
       case '4':
         switch ($this->type) {
             // price of activity number 1   
-          case '2':
+          case '2'://bu
             switch ($this->perperson) {
               case 2:
                 $this->accomodationPrice = 80;
@@ -336,7 +340,7 @@ class Index extends Component
             }
             break;
             // price of activity number 2
-          case '3':
+          case '3'://standard
             switch ($this->perperson) {
               case 2:
                 $this->accomodationPrice = 160;
@@ -352,7 +356,7 @@ class Index extends Component
             }
             break;
             // price of activity number 3
-          case '1':
+          case '1'://lux
             switch ($this->perperson) {
               case 2:
                 $this->accomodationPrice = 680;
@@ -374,7 +378,7 @@ class Index extends Component
       case '6':
         switch ($this->type) {
             // price of activity number 1   
-          case '2':
+          case '2'://bu
             switch ($this->perperson) {
               case 2:
                 $this->accomodationPrice = 58;
@@ -390,7 +394,7 @@ class Index extends Component
             }
             break;
             // price of activity number 2
-          case '3':
+          case '3'://standard
             switch ($this->perperson) {
               case 2:
                 $this->accomodationPrice = 200;
@@ -406,7 +410,7 @@ class Index extends Component
             }
             break;
             // price of activity number 3
-          case '1':
+          case '1'://lux
             switch ($this->perperson) {
               case 2:
                 $this->accomodationPrice = 1790;
@@ -434,8 +438,8 @@ class Index extends Component
       case '2':
         switch ($this->type) {
             // price of activity number 1   
-          case '3':
-          case '2':
+          case '3'://stan
+          case '2'://bu
             switch ($this->perperson) {
               case 2:
                 $this->arrivalPrice = 20;
@@ -451,7 +455,7 @@ class Index extends Component
             }
             break;
             // price of activity number 2
-          case '1':
+          case '1'://lux
             switch ($this->perperson) {
               case 2:
                 $this->arrivalPrice = 35;
@@ -474,9 +478,9 @@ class Index extends Component
       case '6':
         switch ($this->type) {
             // price of activity number 1   
-          case '3':
-          case '2':
-          case '1':
+          case '3'://stan
+          case '2'://bu
+          case '1'://lux
             switch ($this->perperson) {
               case 2:
                 $this->arrivalPrice = 50;
@@ -497,12 +501,15 @@ class Index extends Component
 
   public function setTotalPrice()
   {
+    $this->sumActivitiesPrice = 0;
+    $this->sumAccomodationPrice = 0;
     $this->setArrivalPrice();
+    $this->setDeparturePrice();
     $this->setAccomodationPrice();
     $this->setActivitiPrice();
-    if ($this->perperson>0 && is_numeric($this->perperson) ) {
-      $this->totalPrice = 
-      ($this->sumActivitiesPrice + $this->sumAccomodationPrice + $this->arrivalPrice + $this->departurePrice) * $this->perperson;
+    if ($this->perperson > 0 && is_numeric($this->perperson)) {
+      $this->totalPrice =
+        ($this->sumActivitiesPrice + $this->sumAccomodationPrice + $this->arrivalPrice + $this->departurePrice) * $this->perperson;
     }
   }
   public function lastpage()
@@ -510,7 +517,20 @@ class Index extends Component
 
     session(['package' => $this->package->slug]);
   }
-
+  public function setDeparturePrice()
+  {
+    switch ($this->package->id) {
+      case '1':
+      case '2':
+        $this->arrivalPrice = 20;
+        break;
+      case '3':
+      case '4':
+      case '5':
+      case '6':
+        $this->arrivalPrice = 50;
+    }
+  }
   public function render()
   {
     return view('livewire.package.index')->layout('layouts.main');

@@ -1,4 +1,4 @@
-<div class="mt-6 inline" x-data="{ open: false }">
+<div x-cloak  class="mt-6 inline" x-data="{ open: false }">
             <!-- Button (blue), duh! -->
             <a class="inline-block px-7  py-3 border-2 border-transparent bg-transparent 
             text-white font-medium text-sm leading-snug uppercase rounded-full focus:outline-none 

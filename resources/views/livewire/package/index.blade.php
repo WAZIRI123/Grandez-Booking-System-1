@@ -1,3 +1,6 @@
+   @push('jquery')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    @endpush
 <section class="mt-28 mb-10">
     <div class="container px-8 mx-auto grid lg:grid-cols-12 gap-10">
         <main class="w-full space-y-6 lg:col-span-7">
@@ -114,7 +117,7 @@
             user
             @else
 
-            <form action="#" method="POST" wire:submit.prevent='reservation' class="grid gap-4">
+            <form action="#" method="POST" wire:submit.prevent='reservation' class="grid gap-4" name="booking">
                 <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="form-control">
                         <label for="start_date" class="label">{{ __('Check In') }}</label>
@@ -135,23 +138,29 @@
                         </select>
                     </div>
                     <div class="form-control">
-                        <label for="total_package" class="label">{{ __('Numberof People') }} </label>
+                        <label for="total_package" class="label" id="waziri" x-text="checked">{{ __('Numberof People') }} </label>
                         <input class="w-full input" type="number" name="perPerson" wire:keyup="setTotalPrice" id="perPerson" value="" wire:model="perperson" />
                     </div>
                     <div class="form-control">
                         <label for="activity" class="label">{{ __('Activity') }}</label>
-                        <div class="grid  grid-cols-2 gap-4">
-                            @for($i = 1; $i < ceil($package->total_days)-1; $i++)
-                                <div class="flex justify-center">
-                                    <div class="p-6 rounded-lg shadow-lg bg-white max-w-sm">
-                                        <h2>day {{$i}}</h2>
+                        <div class="grid  grid-cols-3 gap-4">
+                            @for($i = 2; $i < ceil($package->total_days); $i++)
+                                <div class="flex justify-between" x-data="{ open: false }">
+                                    <div class="">
+                                        <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-between rounded-tr-lg rounded-bl-lg py-2 px-4">
+                                            <div><span @click="open=true">day {{$i}} <i class=' bx bx-chevron-down  ' @click="open=true" x-show="!open"></i></span></div>
+                                            <div><span @click="open=false" x-show="open"> <i class='  bx bx-minus  ' @click="open=false"></i></span></div>
+                                        </div>
+                                        <div class="checkdiv" >
                                         @foreach($packageActivities as $activity)
-                                        <div class="flex justify-between">
-                                            <span>{{ $activity->name }}</span>
-                                            <input wire:model="selectedActivity.{{ $activity->id }}.{{ $i }}" value="{{ $activity->id }}" 
-                                            class="checkbox cursor-pointer" type="checkbox" name="selectedActivity[]" wire:click="setTotalPrice" id="{{ $activity->id }}">
+                                        <div class="flex justify-between " x-show="open" x-data="{checked:[]}">
+                                            <span >{{ $activity->name }}</span>
+                                            <input  value="{{ $activity->id }}" class="checkbox cursor-pointer"  
+                                             wire:model="selectedActivity.{{ $activity->id }}.{{ $i }}"
+                                            type="checkbox" name="selectedActivity[]" x-ref="text" wire:click.stop="setTotalPrice" id="{{ $activity->id }}">
                                         </div>
                                         @endforeach
+                                        </div>
                                     </div>
                                 </div>
                                 @endfor
@@ -160,7 +169,7 @@
                 </div>
                 @if ($start_date && $totalPrice && $perperson)
                 <p class="tracking-wide text-gray-600 sm:text-base text-sm">Total price to pay for <span class="font-bold">{{ $package->name }}</span>
-                    for total visitor of <span class="font-bold">{{$perperson}}</span> is <span class="font-bold"></span> <span class="font-bold">${{$totalPrice}}</span></p>
+                    for total visitors of <span class="font-bold">{{$perperson}}</span> is <span class="font-bold"></span> <span class="font-bold">${{$totalPrice}}</span></p>
                 @endif
                 <button class="btn">{{ __('Confirm') }}</button>
             </form>
@@ -225,8 +234,7 @@
                                             @foreach($packageActivities as $activity)
                                             <div class="flex justify-between">
                                                 <span>{{ $activity->name }}</span>
-                                                <input wire:model="selectedActivity.{{ $activity->id }}.{{ $i }}" value="{{ $activity->id }}" class="checkbox cursor-pointer" 
-                                                type="checkbox" name="selectedActivity[]" id="{{ $activity->id }}" x-on:keydown="">
+                                                <input wire:model="selectedActivity.{{ $activity->id }}.{{ $i }}" value="{{ $activity->id }}" class="checkbox cursor-pointer" type="checkbox" name="selectedActivity[]" id="{{ $activity->id }}" x-on:keydown="">
                                             </div>
                                             @endforeach
                                         </div>
@@ -337,5 +345,39 @@
             </div>
             @endauth
         </aside>
+        @push('scripts')
+        <script>
+            function getvalue() {
+ 
+            }
+$('.checkdiv :checkbox').change(function () {
+    var $cs=$(this).closest('.checkdiv').find(':checkbox:checked');
+
+    if ($cs.length > 3) {
+        this.checked=false;
+        alert('you can only select three Activity on this day!')
+    }
+    // if (this.id==5) {
+    //     $(this).closest('.checkdiv').find(':checkbox').not($(this)).prop('checked',false)
+    //     alert('This Activity is Full day ,So you can select itself only! ')
+    // }
+    // else{
+    //     $(this).closest('.checkdiv').find('#5').prop('checked',false)
+    // }
+    // if (this.id==8) {
+    //     $(this).closest('.checkdiv').find(':checkbox').not($(this)).prop('checked',false)
+    //     alert('This Activity is Full day ,So you can select itself only! for this Day');
+    // }
+    // else{
+    //     $(this).closest('.checkdiv').find('#8').prop('checked',false)
+    // }
+   
+
+});
+
+
+        </script>
+        @endpush
     </div>
+
 </section>
