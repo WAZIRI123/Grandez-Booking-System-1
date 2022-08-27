@@ -50,6 +50,7 @@ class Index extends Component
     $validatedData['package_id'] = $this->package->id;
     $validatedData['end_date'] = Carbon::parse($this->start_date)->addDay($this->totalDays)->toDateString();
     $validatedData['total_price'] = $this->totalPrice;
+    $validatedData['no_of_visitors'] = $this->perperson;
     $validatedData['user_id'] = auth()->id();
     $validatedData['code'] = str(uniqid('Grandezza-') . date('Ymd'))->upper();
     $reserveId = PackageReservation::updateOrCreate(['package_id' => $this->package->id, 'start_date' => $this->start_date], $validatedData);
@@ -57,9 +58,9 @@ class Index extends Component
       foreach ($value as $key1 => $value1) {
         if (array_filter($value) && $value1 != false) {
           $details = [];
-          $details['activityId'] = $key;
+          $details['activity_id'] = $key;
           $details['day'] = $key1;
-          $details['reservationId'] = $reserveId->id;
+          $details['reservation_id'] = $reserveId->id;
           PackageReservationDetails::create($details);
         }
       }

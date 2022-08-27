@@ -49,46 +49,53 @@
             <div x-data="{ open: false }">
                 <div class="grid gap-4">
                     <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="form-control">
-                            <label for="start_date" class="label">{{ __('Check In') }}</label>
-                            <input class="w-full input" type="date" name="start_date" min="{{$minStart_date}}" wire:model='start_date' id="start_date" />
-                            @error('start_date')
-                            <span class="invalid">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="form-control">
-                            <label for="total_package" class="label">{{ __('Package Type') }}</label>
-                            <select class="w-full input" wire:model="type" name="packageType" required>
-                                <option value="">
-                                    {{ __('Package Type') }}
-                                </option>
-                                @foreach($packageType as $type)
-                                <option value="{{ $type->id }}">{{$type->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-control">
-                            <label for="total_package" class="label">{{ __('Numberof People') }} </label>
-                            <input class="w-full input" type="number" name="perPerson" id="perPerson" value="" wire:model="perperson" />
-                        </div>
-                        <div class="form-control">
-                            <label for="activity" class="label">{{ __('Activity') }}</label>
-                            <div class="grid  grid-cols-2 gap-4">
-                                @for($i = 1; $i < ceil($package->total_days)-1; $i++)
-                                    <div class="flex justify-center">
-                                        <div class="p-6 rounded-lg shadow-lg bg-white max-w-sm">
-                                            <h2>day {{$i}}</h2>
-                                            @foreach($packageActivities as $activity)
-                                            <div class="flex justify-between">
-                                                <span>{{ $activity->name }}</span>
-                                                <input wire:model="selectedActivity.{{ $activity->id }}.{{ $i }}" value="{{ $activity->id }}" class="checkbox cursor-pointer" type="checkbox" name="selectedActivity[]" id="{{ $activity->id }}">
-                                            </div>
-                                            @endforeach
+                    <div class="form-control">
+                        <label for="start_date" class="label">{{ __('Check In') }}</label>
+                        <input class="w-full input" type="date" name="start_date" min="{{$minStart_date}}" wire:model='start_date' id="start_date" />
+                        @error('start_date')
+                        <span class="invalid">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-control">
+                        <label for="total_package" class="label">{{ __('Package Type') }}</label>
+                        <select class="w-full input" wire:change="setTotalPrice" wire:model="type" name="packageType" required>
+                            <option value="">
+                                {{ __('Package Type') }}
+                            </option>
+                            @foreach($packageType as $type)
+                            <option value="{{ $type->id }}">{{$type->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="total_package" class="label" id="waziri" x-text="checked">{{ __('Numberof People') }} </label>
+                        <input class="w-full input" type="number" name="perPerson" wire:keyup="setTotalPrice" id="perPerson" value="" wire:model="perperson" />
+                    </div>
+                    <div class="form-control">
+                        <label for="activity" class="label">{{ __('Activity') }}</label>
+                        <div class="grid  grid-cols-3 gap-4">
+                            @for($i = 2; $i < ceil($package->total_days); $i++)
+                                <div class="flex justify-between" x-data="{ open: false }">
+                                    <div class="">
+                                        <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-between rounded-tr-lg rounded-bl-lg py-2 px-4">
+                                            <div><span @click="open=true">day {{$i}} <i class=' bx bx-chevron-down  ' @click="open=true" x-show="!open"></i></span></div>
+                                            <div><span @click="open=false" x-show="open"> <i class='  bx bx-minus  ' @click="open=false"></i></span></div>
+                                        </div>
+                                        <div class="checkdiv" >
+                                        @foreach($packageActivities as $activity)
+                                        <div class="flex justify-between " x-show="open" x-data="{checked:[]}">
+                                            <span >{{ $activity->name }}</span>
+                                            <input  value="{{ $activity->id }}" class="checkbox cursor-pointer"  
+                                             wire:model="selectedActivity.{{ $activity->id }}.{{ $i }}"
+                                            type="checkbox" name="selectedActivity[]" x-ref="text" wire:click.stop="setTotalPrice" id="{{ $activity->id }}">
+                                        </div>
+                                        @endforeach
                                         </div>
                                     </div>
-                                    @endfor
-                            </div>
+                                </div>
+                                @endfor
                         </div>
+                    </div>
                     </div>
                     @if ($start_date && $totalPrice && $perperson)
                     <p class="tracking-wide text-gray-600 sm:text-base text-sm">Total price to pay for <span class="font-bold">{{ $package->name }}</span>
@@ -275,46 +282,53 @@
             <div x-data="{ open: false }">
                 <div class="grid gap-4">
                     <div class="grid lg:grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="form-control">
-                            <label for="start_date" class="label">{{ __('Check In') }}</label>
-                            <input class="w-full input" type="date" name="start_date" min="{{$minStart_date}}" wire:model='start_date' id="start_date" />
-                            @error('start_date')
-                            <span class="invalid">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="form-control">
-                            <label for="total_package" class="label">{{ __('Package Type') }}</label>
-                            <select class="w-full input" wire:model="type" name="packageType" required>
-                                <option value="">
-                                    {{ __('Package Type') }}
-                                </option>
-                                @foreach($packageType as $type)
-                                <option value="{{ $type->id }}">{{$type->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-control">
-                            <label for="total_package" class="label">{{ __('Numberof People') }} </label>
-                            <input class="w-full input" type="number" name="perPerson" id="perPerson" value="" wire:model="perperson" />
-                        </div>
-                        <div class="form-control">
-                            <label for="activity" class="label">{{ __('Activity') }}</label>
-                            <div class="grid  grid-cols-2 gap-4">
-                                @for($i = 1; $i < ceil($package->total_days)-1; $i++)
-                                    <div class="flex justify-center">
-                                        <div class="p-6 rounded-lg shadow-lg bg-white max-w-sm">
-                                            <h2>day {{$i}}</h2>
-                                            @foreach($packageActivities as $activity)
-                                            <div class="flex justify-between">
-                                                <span>{{ $activity->name }}</span>
-                                                <input wire:model="selectedActivity.{{ $activity->id }}.{{ $i }}" value="{{ $activity->id }}" class="checkbox cursor-pointer" type="checkbox" name="selectedActivity[]" id="{{ $activity->id }}">
-                                            </div>
-                                            @endforeach
+                    <div class="form-control">
+                        <label for="start_date" class="label">{{ __('Check In') }}</label>
+                        <input class="w-full input" type="date" name="start_date" min="{{$minStart_date}}" wire:model='start_date' id="start_date" />
+                        @error('start_date')
+                        <span class="invalid">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-control">
+                        <label for="total_package" class="label">{{ __('Package Type') }}</label>
+                        <select class="w-full input" wire:change="setTotalPrice" wire:model="type" name="packageType" required>
+                            <option value="">
+                                {{ __('Package Type') }}
+                            </option>
+                            @foreach($packageType as $type)
+                            <option value="{{ $type->id }}">{{$type->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="total_package" class="label" id="waziri" x-text="checked">{{ __('Numberof People') }} </label>
+                        <input class="w-full input" type="number" name="perPerson" wire:keyup="setTotalPrice" id="perPerson" value="" wire:model="perperson" />
+                    </div>
+                    <div class="form-control">
+                        <label for="activity" class="label">{{ __('Activity') }}</label>
+                        <div class="grid  grid-cols-3 gap-4">
+                            @for($i = 2; $i < ceil($package->total_days); $i++)
+                                <div class="flex justify-between" x-data="{ open: false }">
+                                    <div class="">
+                                        <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-between rounded-tr-lg rounded-bl-lg py-2 px-4">
+                                            <div><span @click="open=true">day {{$i}} <i class=' bx bx-chevron-down  ' @click="open=true" x-show="!open"></i></span></div>
+                                            <div><span @click="open=false" x-show="open"> <i class='  bx bx-minus  ' @click="open=false"></i></span></div>
+                                        </div>
+                                        <div class="checkdiv" >
+                                        @foreach($packageActivities as $activity)
+                                        <div class="flex justify-between " x-show="open" x-data="{checked:[]}">
+                                            <span >{{ $activity->name }}</span>
+                                            <input  value="{{ $activity->id }}" class="checkbox cursor-pointer"  
+                                             wire:model="selectedActivity.{{ $activity->id }}.{{ $i }}"
+                                            type="checkbox" name="selectedActivity[]" x-ref="text" wire:click.stop="setTotalPrice" id="{{ $activity->id }}">
+                                        </div>
+                                        @endforeach
                                         </div>
                                     </div>
-                                    @endfor
-                            </div>
+                                </div>
+                                @endfor
                         </div>
+                    </div>
                     </div>
                     @if ($start_date && $totalPrice && $perperson)
                     <p class="tracking-wide text-gray-600 sm:text-base text-sm">Total price to pay for <span class="font-bold">{{ $package->name }}</span>

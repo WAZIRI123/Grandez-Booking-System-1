@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class transferReservation extends Model
 {
     use HasFactory;
-    protected $fillable = ['transfer_id', 'date','user_id','code'];
+    protected $fillable = ['transfer_id', 'date','user_id','code','status'];
 
     protected $casts = [
         'price' => 'integer',

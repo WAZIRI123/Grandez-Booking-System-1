@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class PackageReservation extends Model
 {
     use HasFactory;
-    protected $fillable = ['package_id', 'user_id', 'code', 'start_date', 'end_date', 'total_price'];
+    protected $fillable = ['package_id', 'user_id', 'code', 'start_date', 'end_date', 'total_price','status','no_of_visitors'];
     public function users(): BelongsTo
     {
       return  $this->belongsTo(user::class);

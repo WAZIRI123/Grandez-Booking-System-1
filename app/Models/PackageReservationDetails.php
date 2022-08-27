@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class PackageReservationDetails extends Model
 {
     use HasFactory;
-    protected $fillable=['reservationId','activityId','day'];
+    protected $fillable=['reservation_id','activity_id','day'];
 }

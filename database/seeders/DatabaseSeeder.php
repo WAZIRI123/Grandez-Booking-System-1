@@ -24,6 +24,10 @@ class DatabaseSeeder extends Seeder
             PackageSeeder::class,
             PackageTypeSeeder::class,
             PackageActivitiesSeeder::class,
+            ActivityReservationSeeder::class,
+            PackageReservationSeeder::class,
+            CarReservationSeeder::class,
+            TransferReservationSeeder::class,
         ]);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ReservationStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,7 +21,9 @@ return new class extends Migration
             $table->string('code');
             $table->date('start_date');
             $table->date('end_date');
+            $table->integer('no_of_visitors');
             $table->decimal('total_price',8,2);
+            $table->string('status')->default(ReservationStatus::Waiting->value);
             $table->timestamps();
         });
     }

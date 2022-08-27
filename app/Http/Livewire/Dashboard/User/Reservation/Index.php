@@ -16,7 +16,11 @@ class Index extends Component
 
     public $selected_reservation;
     public $message;
-
+    public $rejected;
+    public $confirmed;
+    public $reservation;
+    public $waiting;
+    public $total;
     protected $listeners = ['reservation:canceled' => 'reservationcanceled'];
 
     public function reservationcanceled()
@@ -26,8 +30,9 @@ class Index extends Component
 
     public function render()
     {
+        $this->reservation= Reservation::where('user_id', auth()->id())->get();
         return view('livewire.dashboard.user.reservation.index', [
-            'reservations' => Reservation::where('user_id', auth()->id())->latest()->paginate(5)
+        'reservations'=>Reservation::where('user_id', auth()->id())->latest()->paginate(5)
         ])->layoutData(['title' => 'Reservation Dashboard | Grandez']);
     }
 

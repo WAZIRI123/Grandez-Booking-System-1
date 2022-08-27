@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class CarReservation extends Model
 {
     use HasFactory;
-    protected $fillable = ['car_id','total_price', 'start_date', 'end_date','user_id','code'];
+    protected $fillable = ['car_id','total_price', 'start_date', 'end_date','user_id','code','status'];
 
     protected $casts = [
         'total_price' => 'integer',

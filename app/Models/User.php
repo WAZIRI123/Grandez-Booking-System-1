@@ -37,10 +37,23 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    public  function carreservations(): HasMany
+    {
+        return $this->hasMany(CarReservation::class);
+    }
     public  function reservations(): HasMany
     {
         return $this->hasMany(Reservation::class);
     }
+    public  function transferreservations(): HasMany
+    {
+        return $this->hasMany(transferReservation::class);
+    }
+    public  function packagereservations(): HasMany
+    {
+        return $this->hasMany(PackageReservation::class);
+    }
+
     /**
      * The attributes that should be cast.
      *

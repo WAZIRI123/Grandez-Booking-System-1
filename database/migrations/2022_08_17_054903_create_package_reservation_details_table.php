@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('package_reservation_details', function (Blueprint $table) {
             $table->id();
-            $table->integer('activityId');
-            $table->integer('reservationId');
+            $table->integer('activity_id');
+            $table->integer('reservation_id');
             $table->integer('day');
             $table->timestamps();
         });
