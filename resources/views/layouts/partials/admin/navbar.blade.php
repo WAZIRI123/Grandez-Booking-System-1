@@ -17,7 +17,7 @@
             <div x-data="{ linkActive: false }" class="relative">
                 <!-- start::Main link -->
                 <div @click="linkActive = !linkActive" class="cursor-pointer">
-                    <img src="./assets/img/profile.jpg" class="w-10 rounded-full">
+                    <img src="{{auth()->user()->avatarUrl()}}" alt="profile photo" class="w-10 rounded-full">
                 </div>
                 <!-- end::Main link -->
 
@@ -26,7 +26,7 @@
                     <!-- start::Submenu content -->
                     <div class="bg-white rounded">
                         <!-- start::Submenu link -->
-                        <a x-data="{ linkHover: false }" href="./pages/profile.html" class="flex items-center justify-between py-2 px-3 hover:bg-gray-100 bg-opacity-20" @mouseover="linkHover = true" @mouseleave="linkHover = false">
+                        <a x-data="{ linkHover: false }" href="{{ route('dashboard.profile.index') }}" class="flex items-center justify-between py-2 px-3 hover:bg-gray-100 bg-opacity-20" @mouseover="linkHover = true" @mouseleave="linkHover = false">
                             <div class="flex items-center">
                                 <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -36,40 +36,12 @@
                                 </div>
                             </div>
                         </a>
-                        <!-- end::Submenu link -->
-                        <!-- start::Submenu link -->
-                        <a x-data="{ linkHover: false }" href="./pages/email/inbox.html" class="flex items-center justify-between py-2 px-3 hover:bg-gray-100 bg-opacity-20" @mouseover="linkHover = true" @mouseleave="linkHover = false">
-                            <div class="flex items-center">
-                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
-                                <div class="text-sm ml-3">
-                                    <p class="text-gray-600 font-bold capitalize" :class=" linkHover ? 'text-primary' : ''">
-                                        Inbox
-                                        <span class="bg-red-600 text-gray-100 text-xs px-1.5 py-0.5 ml-2 rounded">3</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- end::Submenu link -->
-                        <!-- start::Submenu link -->
-                        <a x-data="{ linkHover: false }" href="./pages/settings.html" class="flex items-center justify-between py-2 px-3 hover:bg-gray-100 bg-opacity-20" @mouseover="linkHover = true" @mouseleave="linkHover = false">
-                            <div class="flex items-center">
-                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                                <div class="text-sm ml-3">
-                                    <p class="text-gray-600 font-bold capitalize" :class=" linkHover ? 'text-primary' : ''">Settings</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- end::Submenu link -->
 
                         <hr>
-
                         <!-- start::Submenu link -->
-                        <form method="" action="" x-data="{ linkHover: false }" class="flex items-center justify-between py-2 px-3 hover:bg-gray-100 bg-opacity-20" @mouseover="linkHover = true" @mouseleave="linkHover = false">
+                        <form method="POST" action="{{ route('logout') }}" x-data="{ linkHover: false }" class="flex items-center justify-between py-2 px-3 hover:bg-gray-100 bg-opacity-20" @mouseover="linkHover = true" @mouseleave="linkHover = false">
+                        @csrf
+                        <a href="{{ route('logout') }}">
                             <div class="flex items-center">
                                 <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
@@ -77,8 +49,11 @@
                                 <button class="text-sm ml-3 text-gray-600 font-bold capitalize" :class=" linkHover ? 'text-primary' : ''">
                                     Log out
                                 </button>
+
                             </div>
+                            </a>
                         </form>
+      
                         <!-- end::Submenu link -->
                     </div>
                     <!-- end::Submenu content -->

@@ -33,7 +33,7 @@
             @endif
             @auth
             <a href="{{ $dashboardLink }}">
-                <img class="w-10 h-10 object-cover rounded-tr-xl rounded-bl-xl" src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="{{ auth()->user()->name }}">
+                <img class="w-10 h-10 object-cover rounded-tr-xl rounded-bl-xl" src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="{{ auth()->user()->avatar }}">
             </a>
             @endauth
         </div>

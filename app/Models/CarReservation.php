@@ -19,7 +19,7 @@ class CarReservation extends Model
 
     public function cars(): BelongsTo
     {
-        return $this->belongsTo(CarRental::class);
+        return $this->belongsTo(CarRental::class,'car_id');
     }
     public function users(): BelongsTo
     {

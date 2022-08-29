@@ -18,7 +18,7 @@ class transferReservation extends Model
 
     public function transfers(): BelongsTo
     {
-        return $this->belongsTo(Transfer::class);
+        return $this->belongsTo(Transfer::class,'transfer_id');
     }
     public function users(): BelongsTo
     {

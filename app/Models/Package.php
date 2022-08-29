@@ -36,6 +36,10 @@ class Package extends Model
     {
         return $this->hasMany(Reservation::class);
     }
+    public function Packagereservations(): HasMany
+    {
+        return $this->hasMany(PackageReservation::class);
+    }
 
     protected function name(): Attribute
     {

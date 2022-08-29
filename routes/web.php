@@ -17,6 +17,11 @@ Route::namespace('App\Http\Livewire')->group(function () {
     Route::middleware(['verified'])->group(function () {
         //? Route for dashboard page
         Route::prefix('/dashboard')->namespace('Dashboard')->name('dashboard.')->group(function () {
+            // profile
+            Route::prefix('/profile')->namespace('Profile')->name('profile.')->group(function () {
+                Route::get('/', Index::class)->name('index');
+                Route::put('/update', Index::class)->name('update');
+            });
             //? Route for admin dashboard page
             Route::prefix('/admin')->namespace('Admin')->middleware('role:admin')->name('admin.')->group(function () {
                 //? Displays data statistics and to set up page about
@@ -26,10 +31,21 @@ Route::namespace('App\Http\Livewire')->group(function () {
             Route::prefix('/user')->namespace('User')->middleware('role:user')->name('user.')->group(function () {
                 //? Displays data statistics
                 Route::get('/', Index::class)->name('index');
-                
+                // for package activity dashboard
                 Route::prefix('/reservation')->namespace('Reservation')->name('reservations.')->group(function () {
                     Route::get('/', Index::class)->name('index');
-                    Route::get('/proof/{reservation:code}', [Proof::class, 'render'])->name('proof');
+                });
+                // for car reservation dashboard
+                Route::prefix('/car-reservation')->namespace('CarReservation')->name('car-reservations.')->group(function () {
+                    Route::get('/', Index::class)->name('index');
+                });
+                // for package reservation dashboard
+                Route::prefix('/package-reservation')->namespace('PackageReservation')->name('package-reservations.')->group(function () {
+                    Route::get('/', Index::class)->name('index');
+                });
+                // for transfer reservation dashboard
+                Route::prefix('/transfer-reservation')->namespace('TransferReservation')->name('transfer-reservations.')->group(function () {
+                    Route::get('/', Index::class)->name('index');
                 });
             });
         });
@@ -37,21 +53,19 @@ Route::namespace('App\Http\Livewire')->group(function () {
     //? Routes that can be accessed by logging in or without logging in
     Route::get('/', Index::class)->name('index');
     Route::prefix('/activities')->namespace('Activity')->name('activities.')->group(function () {
-        Route::get('/show',Show::class)->name('show');
+        Route::get('/show', Show::class)->name('show');
         Route::get('/{activity:slug}', Index::class)->name('index');
-       
     });
     // packages
     Route::prefix('/packagies')->namespace('Package')->name('packagies.')->group(function () {
-        Route::get('/show',Show::class)->name('show');
+        Route::get('/show', Show::class)->name('show');
         Route::get('/{package:slug}', Index::class)->name('index');
     });
 
     // cars
     Route::prefix('/cars')->namespace('Car')->name('cars.')->group(function () {
-        Route::get('/show',Show::class)->name('show');
+        Route::get('/show', Show::class)->name('show');
         Route::get('/{car:slug}', Index::class)->name('index');
-       
     });
     // transfers
     Route::prefix('/transfers')->namespace('Transfer')->name('transfers.')->group(function () {

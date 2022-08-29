@@ -53,6 +53,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(PackageReservation::class);
     }
+    public function avatarUrl(){
+        return 'https://www.gravatar.com/avatar/'.md5(trim('wazirially1994@gmail.com'))?? "auth()->user()->avatar";
+    }
 
     /**
      * The attributes that should be cast.
