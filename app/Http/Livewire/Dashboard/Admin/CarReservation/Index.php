@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Dashboard\User\CarReservation;
+namespace App\Http\Livewire\Dashboard\Admin\CarReservation;
 
 use App\Models\CarReservation;
 use App\Models\Package;
@@ -10,13 +10,13 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-
     public $selected_carreservation;
     public $message;
     public $rejected;
     public $confirmed;
     public $carreservation;
     public $waiting;
+    public $status;
     public $total;
     protected $listeners = ['carreservation:canceled' => 'carreservationcanceled'];
 
@@ -26,8 +26,8 @@ class Index extends Component
     }
     public function render()
     {
-        $this->carreservation = CarReservation::where('user_id', auth()->id())->get();
-        return view('livewire.dashboard.user.car-reservation.index',['carreservations'=>CarReservation::where('user_id', auth()->id())->latest()->paginate(5)])->layoutData(['title' => 'package-reservation Dashboard | Grandez']);
+        $this->carreservation = CarReservation::latest()->get();
+        return view('livewire.dashboard.admin.car-reservation.index',['carreservations'=>CarReservation::latest()->paginate(5)])->layoutData(['title' => 'package-reservation Dashboard | Grandez']);
     }
     public function cancel($code)
     {
@@ -45,5 +45,11 @@ class Index extends Component
         $carreservation->update(['status' => 'canceled', 'message' => $this->message]);
 
         $this->emitSelf('carreservation:canceled');
+    }
+    public function changeStatus($reservationId){
+        if ($this->status) {
+           CarReservation::where('id',$reservationId)->update(['status'=>$this->status]);
+           $this->reset();
+        }
     }
 }

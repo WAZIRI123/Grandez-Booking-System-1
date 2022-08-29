@@ -1,3 +1,4 @@
+<div>
 <!-- start:Page content -->
 <div class="h-full bg-gray-200 p-8">
     <!-- start::Stats -->
@@ -146,3 +147,4 @@
     <!-- end::Table -->
 </div>
 <!-- end:Page content -->
+</div>

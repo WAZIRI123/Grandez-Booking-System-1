@@ -26,6 +26,22 @@ Route::namespace('App\Http\Livewire')->group(function () {
             Route::prefix('/admin')->namespace('Admin')->middleware('role:admin')->name('admin.')->group(function () {
                 //? Displays data statistics and to set up page about
                 Route::get('/', Index::class)->name('index');
+                // for package activity dashboard
+                Route::prefix('/reservation')->namespace('Reservation')->name('reservations.')->group(function () {
+                    Route::get('/', Index::class)->name('index');
+                });
+                // for car reservation dashboard
+                Route::prefix('/car-reservation')->namespace('CarReservation')->name('car-reservations.')->group(function () {
+                    Route::get('/', Index::class)->name('index');
+                });
+                // for package reservation dashboard
+                Route::prefix('/package-reservation')->namespace('PackageReservation')->name('package-reservations.')->group(function () {
+                    Route::get('/', Index::class)->name('index');
+                });
+                // for transfer reservation dashboard
+                Route::prefix('/transfer-reservation')->namespace('TransferReservation')->name('transfer-reservations.')->group(function () {
+                    Route::get('/', Index::class)->name('index');
+                });
             });
             //? Route for user dashboard page
             Route::prefix('/user')->namespace('User')->middleware('role:user')->name('user.')->group(function () {

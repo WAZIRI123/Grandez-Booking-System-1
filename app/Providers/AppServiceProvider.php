@@ -38,9 +38,6 @@ class AppServiceProvider extends ServiceProvider
                            ->mixedCase()
                            ->uncompromised();
         });
-        View::composer(['livewire.dashboard.user.car-reservation.index','livewire.dashboard.user.index'], function ($view) {
-            $view->with('carreservations',CarReservation::where('user_id', auth()->id())->latest()->paginate(5));
-        });
         
     }
 }

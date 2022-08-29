@@ -28,7 +28,7 @@ class Index extends Component
     {
         $this->transferreservation = transferReservation::where('user_id', auth()->id())->get();
         return view('livewire.dashboard.user.transfer-reservation.index',[
-            'transferreservations' => transferreservation::where('user_id', auth()->id())->latest()->paginate(5)
+            'transferreservations' => transferReservation::where('user_id', auth()->id())->latest()->paginate(5)
         ])->layoutData(['title' => 'package-reservation Dashboard | Grandez']);
     }
     public function cancel($code)
@@ -40,7 +40,7 @@ class Index extends Component
     {
         $this->validate(['message' => ['required']]);
 
-        $transferreservation = transferreservation::firstWhere('code', $this->selected_transferreservation);
+        $transferreservation = transferReservation::firstWhere('code', $this->selected_transferreservation);
 
         $room = Package::firstWhere('code', $transferreservation->package->code);
 
