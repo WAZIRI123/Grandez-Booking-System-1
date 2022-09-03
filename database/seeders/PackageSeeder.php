@@ -176,31 +176,19 @@ class PackageSeeder extends Seeder
                 Prison Island home of Aldabra giant tortoises. Flanged by an amazing beach of reef 
                 sanctuary, the island is ideal for swimming, snorkelling and beach relaxation. The trip 
                 will end at 4:00 pm and you will be taken back to the hotel.',
-                // 'Day 2: STONE TOWN + PRISON ISLAND + SPICE TOUR',
-                'At 9:00 am the driver/guide will take you to Stone Town Tour, this tour takes around
-                the historical culture and architectural important town of Zanzibar with a century
-                history. It includes a visit to former slave market site, now stands as Anglican church
-                built in 1871, town market, visit the Zanzibar Memorial Museum, Old Arab Fort,
-                Palace Museum, Old Indian dispensary (Cultural Center) to Maruhubi Palace Ruins
-                via Living Stone House.
-                After stone town tour the guide will take you to meet the boat captain heading to
-                Prison Island home of Aldabra giant tortoises. Flanged by an amazing beach of reef
-                sanctuary, the island is ideal for swimming, snorkelling and beach relaxation.
-                After Prison Island you will begin the trip to Spice Tour at Kizimbani Spice farm. On
-                this tour you will see and taste the tropical fruits, spices plantation or plots in the
-                island. A variety of spices plants used as ornament, medicines, flowers, fruits and
-                another interesting flora can be seen during spice tour. After the tour, the driver will
-                take you back to your hotel.',
+      
+
                 // 'Day 6: DEPARTURE ',
                 'Pick up from the hotel and transfer to the airport/ferry for departure.',
                 '',
+                ' ',
                 '5.5'
             ],
             [
                 '7 DAYS | 6 NIGHTS PACKAGE',
                 // 'Day 1: ARRIVAL',
                 'Arrive Zanzibar airport/ferry and transfer to the hotel for check-in and overnight. ',
-                'Day 2: SCHOOL VISIT FOR DONATION + SWIM WITH THE TURTLES',
+                // 'Day 2: SCHOOL VISIT FOR DONATION + SWIM WITH THE TURTLES',
                 'The driver will pick you at 8:00 am heading to visit A School for donation. After that
                 the driver will take you to Baraka Natural Aquarium which is a magical little lagoon
                 that rescues and rehabilitates sea turtles that have been accidentally caught in the
@@ -247,6 +235,7 @@ class PackageSeeder extends Seeder
                  'Rest and relax at the beautiful hotel.',
                 // 'Day 7: DEPARTURE ',
                 'Pick up from the hotel and transfer to the airport/ferry for departure.',
+                '',
                 '6.5'
             ],
             [
