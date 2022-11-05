@@ -13,7 +13,7 @@ class Activity extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name','image', 'description', 'explanation','slug'
+        'name','image', 'description', 'explanation','slug','price0','price1','price2','price3','include0','include1','include2','include3','include4','notInclude0','notInclude1'
     ];
     public function scopeFilter($query, array $filters)
     {

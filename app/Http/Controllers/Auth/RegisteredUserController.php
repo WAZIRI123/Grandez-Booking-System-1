@@ -61,5 +61,6 @@ class RegisteredUserController extends Controller
         if (session('transfer')) {
             return to_route('transfers.index', session('transfer'));
         }
+        return to_route('index');
     }
 }

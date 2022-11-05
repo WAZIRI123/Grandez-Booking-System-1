@@ -27,7 +27,63 @@
                 <blockquote>
                     {{ $activity->description }}
                 </blockquote>
-                {!! $activity->explanation !!}
+                <div class="px-2 mb-12">
+                    <!-- start::Bottom Margin Tabs -->
+                    <div x-data="{ activeTab: 1 }">
+                        <div class="flex">
+                            <button @click="activeTab = 1" class="w-32 py-1 rounded" :class="activeTab == 1 ? 'bg-primary text-gray-100' : 'hover:text-primary'">
+                                Description
+                            </button>
+                            <button @click="activeTab = 2" class="w-32 py-1 rounded" :class="activeTab == 2 ? 'bg-primary text-gray-100' : 'hover:text-primary'">
+                                Price
+                            </button>
+                            <button @click="activeTab = 3" class="w-32 py-1 rounded" :class="activeTab == 3 ? 'bg-primary text-gray-100' : 'hover:text-primary'">
+                                Includes
+                            </button>
+                            <button @click="activeTab = 4" class="w-32 py-1 rounded" :class="activeTab == 4 ? 'bg-primary text-gray-100' : 'hover:text-primary'">
+                                Not Included
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <div :class="activeTab === 1 ? 'block' : 'hidden'">
+                                {!! $activity->explanation !!}
+                            </div>
+                            <div :class="activeTab === 2 ? 'block' : 'hidden'" >
+                                <ul>
+                                    <li>{{$activity->price0}}</li>
+                                    <li>{{$activity->price1}}</li>
+                                    <li>{{$activity->price2}}</li>
+                                    <li>{{$activity->price3}}</li>
+                                </ul>
+                            </div>
+                            <div :class="activeTab === 3 ? 'block' : 'hidden'" >
+                                <ul>
+                                    <li>{{$activity->include0}}</li>
+                                    <li>{{$activity->include1}}</li>
+                                    <li>{{$activity->include2}}</li>
+                                    @if ($activity->include3)
+                                    <li>{{$activity->include3}}</li>
+                                    @endif
+                                    @if ($activity->include4)
+                                    <li>{{$activity->include4}}</li>
+                                    @endif
+                                   
+                                </ul>
+                            </div>
+                            <div :class="activeTab === 4 ? 'block' : 'hidden'" >
+                                <ul>
+                                    <li>{{$activity->notInclude0}}</li>
+
+                                    @if ($activity->notInclude1)
+                                    <li>{{$activity->notInclude1}}</li>
+                                    @endif
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end::Background Color Tabs -->
+                </div>
             </div>
 
         </main>

@@ -48,6 +48,9 @@ class AuthenticatedSessionController extends Controller
         if (session('transfer')) {
             return to_route('transfers.index', session('transfer'));
         }
+        if (session('package')) {
+            return to_route('packagies.index', session('package'));
+        }
     }
 
 

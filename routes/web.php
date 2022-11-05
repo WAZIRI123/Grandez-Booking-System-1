@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -11,10 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::namespace('App\Http\Livewire')->group(function () {
+Route::namespace('App\Http\Livewire')->middleware(['verified'])->group(function () {
     //? Routes that can be accessed only when logging in
-    Route::middleware(['verified'])->group(function () {
         //? Route for dashboard page
         Route::prefix('/dashboard')->namespace('Dashboard')->name('dashboard.')->group(function () {
             // profile
@@ -64,9 +63,8 @@ Route::namespace('App\Http\Livewire')->group(function () {
                     Route::get('/', Index::class)->name('index');
                 });
             });
+            //? Routes that can be accessed by logging in or without logging in
         });
-    });
-    //? Routes that can be accessed by logging in or without logging in
     Route::get('/', Index::class)->name('index');
     Route::prefix('/activities')->namespace('Activity')->name('activities.')->group(function () {
         Route::get('/show', Show::class)->name('show');

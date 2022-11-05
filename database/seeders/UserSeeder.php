@@ -29,11 +29,37 @@ class UserSeeder extends Seeder
 
         $user->syncRoles('user');
         $user = User::create([
-            'name' => 'User',
+            'name' => 'justing',
             'code' => bin2hex(random_bytes(20)),
-            'email' => 'admin@gmail.com',
+            'email' => 'justin@grandezzazanzibar.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'phone' => '08174835153', // password
+            'remember_token' => Str::random(10),
+            'avatar' => 'img/avatar/a.png'
+        ]);
+
+        $user->syncRoles('admin');
+
+        $user = User::create([
+            'name' => 'Kiwale',
+            'code' => bin2hex(random_bytes(20)),
+            'email' => 'kiwale@grandezzazanzibar.com',
+            'email_verified_at' => now(),
+            'password' =>'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'phone' => '08174835153', // password
+            'remember_token' => Str::random(10),
+            'avatar' => 'img/avatar/a.png'
+        ]);
+
+        $user->syncRoles('admin');
+
+        $user = User::create([
+            'name' => 'Ibrahim',
+            'code' => bin2hex(random_bytes(20)),
+            'email' => 'ibrahim@grandezzazanzibar.com',
+            'email_verified_at' => now(),
+            'password' =>'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'phone' => '08174835153', // password
             'remember_token' => Str::random(10),
             'avatar' => 'img/avatar/a.png'

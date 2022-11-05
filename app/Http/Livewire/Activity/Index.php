@@ -4,9 +4,11 @@
 namespace App\Http\Livewire\Activity;
 
 use App\Enums\ReservationStatus;
+use App\Mail\Reservation as MailReservation;
 use Carbon\Carbon;
 use App\Models\Activity;
 use App\Models\Reservation;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class Index extends Component
@@ -39,7 +41,8 @@ class Index extends Component
   $validatedData['code'] = str(uniqid('Grandezza-') . date('Ymd'))->upper();
   Reservation::updateOrCreate(['activity_id'=>$this->activity->id,'check_in'=>$this->check_in,'user_id'=>auth()->user()->id],$validatedData);
   $this->dispatchBrowserEvent('reservation:created');
-
+  
+  Mail::to('info@grandezzazanzibar.com')->send(new MailReservation(auth()->user()->email));
   }
 
   public function setPrice()
