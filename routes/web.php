@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::namespace('App\Http\Livewire')->middleware(['verified'])->group(function () {
+Route::namespace('App\Http\Livewire')->group(function () {
     //? Routes that can be accessed only when logging in
         //? Route for dashboard page
         Route::prefix('/dashboard')->namespace('Dashboard')->name('dashboard.')->group(function () {
