@@ -47,7 +47,7 @@
                             </a>
                         </div>
                     </div>
-                    <span class="text-sm text-gray-600 bg-gray-200 py-2 text-center rounded-tr-xl rounded-bl-xl block">12 Activities available</span>
+
                 </div>
                 <!-- end -->
                 <!-- start -->
@@ -85,7 +85,6 @@
                             </a>
                         </div>
                     </div>
-                    <span class="text-sm text-gray-600 bg-gray-200 py-2 text-center rounded-tr-xl rounded-bl-xl block">14 Packagies available</span>
                 </div>
                 <!-- end -->
                 <!-- start -->
@@ -123,9 +122,33 @@
                             </a>
                         </div>
                     </div>
-                    <span class="text-sm text-gray-600 bg-gray-200 py-2 text-center rounded-tr-xl rounded-bl-xl block">44 Vehicles available</span>
                 </div>
             </div>
         </div>
     </section>
+    <!-- ====== Team Section Start -->
+ <section class=" pt-20 pb-10 lg:pt-[50px] lg:pb-20">
+    
+ <div class="container mx-auto">
+    <div class="space-y-2 mb-10 flex flex-wrap items-center justify-center">
+        <div>
+            <h1 class="sm:text-5xl  text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">Our Team </h1>
+        </div>
+    </div>
+<div class="-mx-4 flex flex-wrap">
+<x-our-team  image='storage/img/Team/justin shirima.JPG' head="Coriss Ambady" description="Web Developer"/>
+<x-our-team  image='storage/img/Team/ibra.JPG' head="Coriss Ambady" description="Web Developer"/>
+<x-our-team  image='storage/img/Team/brenda.JPG' head="Coriss Ambady" description="Web Developer"/>
+<x-our-team  image='storage/img/Team/aminata.JPG' head="Coriss Ambady" description="Web Developer"/>
+<x-our-team  image='storage/img/Team/evelyne.JPG' head="Coriss Ambady" description="Web Developer"/>
+<x-our-team  image='storage/img/Team/kiwale.JPG' head="Coriss Ambady" description="Web Developer"/>
+<x-our-team  image='storage/img/Team/waziri.PNG' head="Coriss Ambady" description="Web Developer"/>
+    </div>
+    </div>
+  </section>
+  <!-- ====== Team Section End -->
 </div>
+{{-- test --}}
+
+
+  
