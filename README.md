@@ -1,64 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+# Final school management system
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+>This is the full-stack School Management System. By Full stack School Management System i mean that the system includes both the website part or front end part and the backend part or system part. .
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![{5E2588BF-539C-4E12-BA38-7955752A3275}](https://user-images.githubusercontent.com/74810402/203508228-7126a2fc-2857-4f5b-9002-e1c1fde479fc.jpg)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Final School Management System is a multi-school management system that aims to make school administration and activities a breeze by using the power of the internet and increased connectivity.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Requirements
+* Php 8.1 and above
+* Composer 
+* Since this project is running laravel 9, we suggest checking out the official requirements [here](https://laravel.com/docs/9.x/upgrade#updating-dependencies)
 
-## Laravel Sponsors
+## Installation Instructions
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- Create a database 
+- Open the project folder in your IDE
+- Copy and paste the .env.example file in the same directory and rename the new .env copy.example to .env 
+- In the .env file of the project add your database name
+- Install Composer and NodeJs in your machine
 
-### Premium Partners
+- In the terminal in your IDE, run the following commands:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```
+    1.  composer install
+    2. 	php artisan key:generate
+    3. 	php artisan migrate  --seed
+    4.  php artisan key:generate
+    5.	php artisan serve
+```
+After running the above commands, you should be able to access the application at http::/localhost or your designated domain name depending on configuration.
 
-## Contributing
+## Log in to the application with the following credentials
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    **Admin**
+       * Email: admin@demo.com
+       * Password: password
+       
+    **Teacher**
+       * Email: teacher@demo.com
+       * Password: password
+       
+     **Student**
+       * Email: student@demo.com
+       * Password: password
+       
+     **Parent**
+       * Email: parent@demo.com
+       * Password: password
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Features
+### Super Admin
+By default super admin can manage all activities in each school, some super admin exclusive features are
+* Ability to create, edit and delete schools
+" Ability to set school of operation
 
-## Security Vulnerabilities
+### Admin
+* Ability to manage own school settings
+* Ability to create, edit, view and delete class groups in assigned school
+* Ability to create, edit, view and delete classes 
+* Ability to create, edit, view and delete sections
+* Ability to create, edit, view and delete classes
+* Ability to create, edit, view and delete subjects
+* Ability to create, edit, view and delete academic years
+* Ability to set Academic years
+* Ability to admit students, view student profiles, edit student profile, print student profile and delete student
+* Ability to create teachers, edit teacher profile and delete teacher
+* Ability to create, edit, manage, view and delete timetables
+* Ability to create, edit, view and delete sylabii
+* Ability to create, edit, view and delete semester
+* Ability to set own school academic year and semester
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Teachers
+* Ability to create, edit, view and delete sylabii
+* Ability to create, edit, manage, view and delete timetables
 
-## License
+This project was highly inspired by yungifez/skuul
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Do you like the current state of this project?, you can support me or hire me for work
