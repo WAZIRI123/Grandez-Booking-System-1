@@ -1,21 +1,17 @@
 <div>
     <x-partials.herosec />
-
-      <!-- ====== Team Section Start -->
- <section class="pb-0 pt-2 lg:pb-0  bg-slate-100 mx-auto ">
+    <div class="flex flex-col items-center mb-8 space-y-4 md:space-y-0 md:flex-row md:justify-center md:space-x-8 lg:space-x-12">
+        <button class="inline-block px-7 py-3 border-2 bg-blue-700 border-gray-200 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-900 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+          Our Packages
+        </button>
+        <button class="inline-block px-7 py-3 border-2 bg-blue-700 border-gray-200 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-900  focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+          Our Team
+        </button>
+      </div>
+      
+      
     
-    <div class="container mx-auto">
-       <div class="space-y-2 mb-10  pb-5 flex flex-wrap items-center justify-center">
-           <div class="pl-5">
-               <h1 class="sm:text-5xl  text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full text-center">We Are </h1>
-
-           </div>
-           <p class="pl-3  antialiased  pr-6  border-l-2 border-slate-600 "> Tour Company established in 2019 to specialize on holiday explorations taking place in Zanzibar and prior booking of Safaris and Mountains located in Tanzania Mainland. </p>
-       </div>
-   </div>
-     </section>
-     <!-- ====== Team Section End -->
-    <section class="my-4 " id="package">
+    <section class="my-4 " id="package" hidden>
         <div class="container px-8 mx-auto space-y-10">
             <div class="space-y-2 flex flex-wrap items-center justify-between">
                 <div>
@@ -142,8 +138,7 @@
         </div>
     </section>
     <!-- ====== Team Section Start -->
- <section class=" pt-20 pb-10 lg:pt-[50px] lg:pb-20">
-    
+<section class=" pt-20 pb-10 lg:pt-[50px] lg:pb-20"hidden>
  <div class="container mx-auto">
     <div class="space-y-2 mb-10 flex flex-wrap items-center justify-center">
         <div>

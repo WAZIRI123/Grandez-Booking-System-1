@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::namespace('App\Http\Livewire')->group(function () {
     //? Routes that can be accessed only when logging in
-        //? Route for dashboard page
+             //? Route for dashboard page
         Route::prefix('/dashboard')->namespace('Dashboard')->name('dashboard.')->group(function () {
             // profile
             Route::prefix('/profile')->namespace('Profile')->name('profile.')->group(function () {
@@ -23,42 +23,42 @@ Route::namespace('App\Http\Livewire')->group(function () {
             });
             //? Route for admin dashboard page
             Route::prefix('/admin')->namespace('Admin')->middleware('role:admin')->name('admin.')->group(function () {
-                //? Displays data statistics and to set up page about
+            //? Displays data statistics and to set up page about
                 Route::get('/', Index::class)->name('index');
-                // for package activity dashboard
+            // for package activity dashboard
                 Route::prefix('/reservation')->namespace('Reservation')->name('reservations.')->group(function () {
                     Route::get('/', Index::class)->name('index');
                 });
-                // for car reservation dashboard
+            // for car reservation dashboard
                 Route::prefix('/car-reservation')->namespace('CarReservation')->name('car-reservations.')->group(function () {
                     Route::get('/', Index::class)->name('index');
                 });
-                // for package reservation dashboard
+            // for package reservation dashboard
                 Route::prefix('/package-reservation')->namespace('PackageReservation')->name('package-reservations.')->group(function () {
                     Route::get('/', Index::class)->name('index');
                 });
-                // for transfer reservation dashboard
+            // for transfer reservation dashboard
                 Route::prefix('/transfer-reservation')->namespace('TransferReservation')->name('transfer-reservations.')->group(function () {
                     Route::get('/', Index::class)->name('index');
                 });
             });
             //? Route for user dashboard page
             Route::prefix('/user')->namespace('User')->middleware('role:user')->name('user.')->group(function () {
-                //? Displays data statistics
+            //? Displays data statistics
                 Route::get('/', Index::class)->name('index');
-                // for package activity dashboard
+            // for package activity dashboard
                 Route::prefix('/reservation')->namespace('Reservation')->name('reservations.')->group(function () {
                     Route::get('/', Index::class)->name('index');
                 });
-                // for car reservation dashboard
+            // for car reservation dashboard
                 Route::prefix('/car-reservation')->namespace('CarReservation')->name('car-reservations.')->group(function () {
                     Route::get('/', Index::class)->name('index');
                 });
-                // for package reservation dashboard
+            // for package reservation dashboard
                 Route::prefix('/package-reservation')->namespace('PackageReservation')->name('package-reservations.')->group(function () {
                     Route::get('/', Index::class)->name('index');
                 });
-                // for transfer reservation dashboard
+            // for transfer reservation dashboard
                 Route::prefix('/transfer-reservation')->namespace('TransferReservation')->name('transfer-reservations.')->group(function () {
                     Route::get('/', Index::class)->name('index');
                 });
