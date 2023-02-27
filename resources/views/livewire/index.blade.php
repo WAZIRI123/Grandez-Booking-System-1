@@ -1,5 +1,20 @@
 <div>
     <x-partials.herosec />
+
+      <!-- ====== Team Section Start -->
+ <section class="pb-0 pt-2 lg:pb-0  bg-slate-100 mx-auto ">
+    
+    <div class="container mx-auto">
+       <div class="space-y-2 mb-10  pb-5 flex flex-wrap items-center justify-center">
+           <div class="pl-5">
+               <h1 class="sm:text-5xl  text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full text-center">We Are </h1>
+
+           </div>
+           <p class="pl-3  antialiased  pr-6  border-l-2 border-slate-600 "> Tour Company established in 2019 to specialize on holiday explorations taking place in Zanzibar and prior booking of Safaris and Mountains located in Tanzania Mainland. </p>
+       </div>
+   </div>
+     </section>
+     <!-- ====== Team Section End -->
     <section class="my-4 " id="package">
         <div class="container px-8 mx-auto space-y-10">
             <div class="space-y-2 flex flex-wrap items-center justify-between">
@@ -136,13 +151,38 @@
         </div>
     </div>
 <div class="-mx-4 flex flex-wrap">
-<x-our-team  image='storage/img/Team/justin shirima.JPG' head="Coriss Ambady" description="Web Developer"/>
-<x-our-team  image='storage/img/Team/ibra.JPG' head="Coriss Ambady" description="Web Developer"/>
-<x-our-team  image='storage/img/Team/brenda.JPG' head="Coriss Ambady" description="Web Developer"/>
-<x-our-team  image='storage/img/Team/aminata.JPG' head="Coriss Ambady" description="Web Developer"/>
-<x-our-team  image='storage/img/Team/evelyne.JPG' head="Coriss Ambady" description="Web Developer"/>
-<x-our-team  image='storage/img/Team/kiwale.JPG' head="Coriss Ambady" description="Web Developer"/>
-<x-our-team  image='storage/img/Team/waziri.PNG' head="Coriss Ambady" description="Web Developer"/>
+<x-our-team  image='storage/img/Team/justin shirima.JPG' head="Managing Director " based="Based in Zanzibar"
+name="Justin SHIRIMA."
+description="Develop and maintain research and development programmes to ensure that the company remains at the forefront in the industry.
+"/>
+<x-our-team  image='storage/img/Team/ibra.JPG'
+ head="Operations Manager"
+name=" Ibrahim MWINYIMSA."
+based="Based in Zanzibar and Mainland"
+ description="Oversee all the core operations, budgets, project delivery and strategy, resourcing and financial processes of Grandezza Tours and Travel."/>
+<x-our-team  image='storage/img/Team/brenda.JPG' 
+head="Community Manager" 
+name="Brenda Severin."
+based="Based in Austria"
+description="Responsible for the growth and maintnance of Grandezza community."/>
+<x-our-team  image='storage/img/Team/aminata.JPG' head="Community Manager"
+name=" Aminata SIDIBE"
+based="Based in France"
+ description="Responsible for the growth and maintnance of Grandezza community."/>
+<x-our-team  image='storage/img/Team/evelyne.JPG'
+ head="Sales Executive" 
+ name="Evelyne MKENDA."
+ based="Based in England"
+ description="Organising sales visits, attending trade exhibitions, conferences and meetings, negotiating contracts and package..."/>
+<x-our-team  image='storage/img/Team/kiwale.JPG' 
+name=" Ladislaus KIWALE. "
+based="Based in Zanzibar"
+head="General Manager" description="Provide leadership and direction to a team of office staff, guides and drivers. To manage the everyday operation of the business."/>
+<x-our-team  image='storage/img/Team/waziri.PNG' 
+head="Web Developer"
+name="Waziri Ally."
+based="Based in Tanzania Mainland"
+ description="Responsible for developing designing and/or  Managing websites for Grandezza company."/>
     </div>
     </div>
   </section>
