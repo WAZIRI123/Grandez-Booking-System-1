@@ -1,6 +1,17 @@
 <div>
     <x-partials.herosec />
-    <section class="my-4 " id="package">
+    <div class="flex flex-col items-center mb-8 space-y-4 md:space-y-0 md:flex-row md:justify-center md:space-x-8 lg:space-x-12">
+        <button class="inline-block px-7 py-3 border-2 bg-blue-700 border-gray-200 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-900 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+          Our Packages
+        </button>
+        <button class="inline-block px-7 py-3 border-2 bg-blue-700 border-gray-200 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-900  focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+          Our Team
+        </button>
+      </div>
+      
+      
+    
+    <section class="my-4 " id="package" hidden>
         <div class="container px-8 mx-auto space-y-10">
             <div class="space-y-2 flex flex-wrap items-center justify-between">
                 <div>
@@ -127,8 +138,7 @@
         </div>
     </section>
     <!-- ====== Team Section Start -->
- <section class=" pt-20 pb-10 lg:pt-[50px] lg:pb-20">
-    
+<section class=" pt-20 pb-10 lg:pt-[50px] lg:pb-20"hidden>
  <div class="container mx-auto">
     <div class="space-y-2 mb-10 flex flex-wrap items-center justify-center">
         <div>
