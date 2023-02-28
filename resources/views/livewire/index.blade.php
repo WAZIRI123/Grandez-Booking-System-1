@@ -1,17 +1,8 @@
-<div>
+<div x-data="dropdown">
     <x-partials.herosec />
-    <div class="flex flex-col items-center mb-8 space-y-4 md:space-y-0 md:flex-row md:justify-center md:space-x-8 lg:space-x-12">
-        <button class="inline-block px-7 py-3 border-2 bg-blue-700 border-gray-200 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-900 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-          Our Packages
-        </button>
-        <button class="inline-block px-7 py-3 border-2 bg-blue-700 border-gray-200 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-900  focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-          Our Team
-        </button>
-      </div>
+
       
-      
-    
-    <section class="my-4 " id="package" hidden>
+    <section class="my-4 " id="package" x-show="showPackage" x-transition>
         <div class="container px-8 mx-auto space-y-10">
             <div class="space-y-2 flex flex-wrap items-center justify-between">
                 <div>
@@ -137,8 +128,9 @@
             </div>
         </div>
     </section>
+    
     <!-- ====== Team Section Start -->
-<section class=" pt-20 pb-10 lg:pt-[50px] lg:pb-20"hidden>
+<section class=" pt-20 pb-10 lg:pt-[50px] lg:pb-20" x-show="showTeam" x-transition>
  <div class="container mx-auto">
     <div class="space-y-2 mb-10 flex flex-wrap items-center justify-center">
         <div>
@@ -146,6 +138,7 @@
         </div>
     </div>
 <div class="-mx-4 flex flex-wrap">
+    
 <x-our-team  image='storage/img/Team/justin shirima.JPG' head="Managing Director " based="Based in Zanzibar"
 name="Justin SHIRIMA."
 description="Develop and maintain research and development programmes to ensure that the company remains at the forefront in the industry.
@@ -182,8 +175,30 @@ based="Based in Tanzania Mainland"
     </div>
   </section>
   <!-- ====== Team Section End -->
-</div>
+
 {{-- test --}}
+
+
+<script>
+    @push('scripts')
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('dropdown', () => ({
+            showPackage: false,
+            showTeam: false,
+            showToggle() {
+                this.showPackage =! this.showPackage 
+                this.showTeam = false
+            },
+            showTeamToggle() {
+                this.showTeam =! this.showTeam 
+                this.showPackage = false
+            }
+        }))
+    })
+
+@endpush
+</script>
 
 
   

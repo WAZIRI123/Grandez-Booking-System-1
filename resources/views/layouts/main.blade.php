@@ -73,9 +73,11 @@
             <div class="py-6 text-sm text-center dark:text-gray-400">©  {{ date('Y') }} Grandezza . All rights reserved.</div>
         </footer>
     </div>
-
     
     <livewire:scripts />
-    @stack('scripts')
+    <script>
+
+        @stack('scripts')
+    </script>
 </body>
 </html>

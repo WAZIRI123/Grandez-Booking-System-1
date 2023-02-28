@@ -49,12 +49,20 @@
               <div class="flex justify-center items-center h-full">
                 <div class="text-center text-white px-6 md:px-12">
                   <h1 class="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12">Welcome to the Grandezza's <br /><span>Booking System</span></h1>
+                  <div class="flex flex-col items-center my-8 space-y-4 md:space-y-0 md:flex-row md:justify-center md:space-x-8 lg:space-x-12">
+                    <button @click="showToggle" class="inline-block px-7 py-3 border-2 bg-blue-700 border-gray-200 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-900 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                      Our Packages
+                    </button>
+                    <button class="inline-block px-7 py-3 border-2 bg-blue-700 border-gray-200 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-900  focus:outline-none focus:ring-0 transition duration-150 ease-in-out" @click="showTeamToggle">
+                      More About Us
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <!-- Section: Design Block -->
-
       </div>
+
       <!-- Container for demo purpose -->
