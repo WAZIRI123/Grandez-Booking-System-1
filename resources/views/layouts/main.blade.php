@@ -16,9 +16,10 @@
 </head>
 <body class="font-['Quicksand']">
     <div class="relative overflow-x-hidden min-h-screen flex flex-col justify-between">
+        <div class="relative pt-24 md:pt-32">
         <x-nav/>
        {{ $slot }}
-        
+        </div>
         <footer class="py-8 border-t border-gray-200">
             <div class="container px-10 mx-auto grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 gap-10">
                 <div class="space-y-2">

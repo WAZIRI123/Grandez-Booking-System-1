@@ -1,9 +1,12 @@
 <div x-data="dropdown">
-    <x-partials.herosec />
+    <x-partials.herosec  />
 
-      
-    <section class="my-4 " id="package" x-show="showPackage" x-transition>
+    <section class="my-4 relative " id="package" x-show="showPackage" x-transition>
+        <button class="absolute top-20 right-20 p-2 rounded-full text-white bg-gray-500 hover:text-white" @click="showPackage = false; showHeroSection=true; showTeam = false;">
+          <span>back</span>
+          </button>
         <div class="container px-8 mx-auto space-y-10">
+            
             <div class="space-y-2 flex flex-wrap items-center justify-between">
                 <div>
                     <h1 class="sm:text-5xl text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">Our Best Services </h1>
@@ -184,11 +187,13 @@ based="Based in Tanzania Mainland"
 
     document.addEventListener('alpine:init', () => {
         Alpine.data('dropdown', () => ({
-            showPackage: false,
+            showPackage: true,
+            showHeroSection: false,
             showTeam: false,
             showToggle() {
                 this.showPackage =! this.showPackage 
                 this.showTeam = false
+                this.showHeroSection = false
             },
             showTeamToggle() {
                 this.showTeam =! this.showTeam 

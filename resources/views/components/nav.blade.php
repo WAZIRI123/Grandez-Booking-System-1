@@ -1,6 +1,6 @@
 @props(['packagies'])
-<nav class="py-4 fixed inset-x-0 top-0 z-50 bg-white">
-    <div x-data="{ menu: (window.innerWidth >= 768) ? true : false }" class="container mx-auto px-8 flex items-center justify-between relative">
+<nav class="py-4  fixed  inset-x-0 top-0 z-50 bg-white">
+    <div x-data="{ menu: (window.innerWidth >= 768) ? true : false }" class="  space-y-12 container mx-auto px-8 flex items-center justify-between relative">
         <a href="{{ route('index') }}">
             <img src="{{ asset("img/brand/logo-1.png") }}" class="w-25 h-25 object-cover rounded-tr-xl rounded-bl-xl" alt="">
         </a>
