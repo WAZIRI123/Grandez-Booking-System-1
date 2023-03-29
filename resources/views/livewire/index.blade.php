@@ -2,19 +2,19 @@
     <x-partials.herosec  />
 
     <section class="my-4 relative " id="package" x-show="showPackage" x-transition>
-        <button class="absolute top-20 right-20 p-2 rounded-full text-white bg-gray-500 hover:text-white" @click="showPackage = false; showHeroSection=true; showTeam = false;">
-          <span>back</span>
-          </button>
+
         <div class="container px-8 mx-auto space-y-10">
             
             <div class="space-y-2 flex flex-wrap items-center justify-between">
+                
                 <div>
                     <h1 class="sm:text-5xl text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">Our Best Services </h1>
                     <p class="tracking-wide text-gray-600 sm:text-base text-sm">We offer the best services to accompany your rest</p>
                 </div>
-                <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
-                    <p class="tracking-wide text-gray-600 sm:text-base text-sm">Please Select Your Caterory of Interest Below to Reserve Your Service! </p>
+                <div @click="showPackage = false; showHeroSection=true; showTeam = false;" class="btn bg-gray-200 hover:bg-gray-300  text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
+                    <p class="tracking-wide text-gray-600 sm:text-base text-sm">Back </p>
                 </div>
+              
             </div>
             <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
                 <!-- start -->
@@ -135,12 +135,18 @@
     <!-- ====== Team Section Start -->
 <section class=" pt-20 pb-10 lg:pt-[50px] lg:pb-20" x-show="showTeam" x-transition>
  <div class="container mx-auto">
-    <div class="space-y-2 mb-10 flex flex-wrap items-center justify-center">
+    <div class="space-y-2 flex flex-wrap items-center justify-between">
+                
         <div>
-            <h1 class="sm:text-5xl  text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">Our Team </h1>
+            <h1 class="sm:text-5xl text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">Our Best Services </h1>
+            <p class="tracking-wide text-gray-600 sm:text-base text-sm">We offer the best services to accompany your rest</p>
         </div>
+        <div @click="showPackage = false; showHeroSection=true; showTeam = false;" class="btn bg-gray-200 hover:bg-gray-300  text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
+            <p class="tracking-wide text-gray-600 sm:text-base text-sm">Back </p>
+        </div>
+      
     </div>
-<div class="-mx-4 flex flex-wrap">
+<div class="-mx-4  flex flex-wrap">
     
 <x-our-team  image='storage/img/Team/justin shirima.JPG' head="Managing Director " based="Based in Zanzibar"
 name="Justin SHIRIMA."
@@ -176,8 +182,53 @@ based="Based in Tanzania Mainland"
  description="Responsible for developing designing and/or  Managing websites for Grandezza company."/>
     </div>
     </div>
+
+    <div class="gnz_heading">
+        <h6>Our Traveller Say</h6>
+        <h2>What Our Traveller Say About Us</h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-4 mx-4">
+    {{-- item1 --}}
+    <div class="relative rounded-lg overflow-hidden " >
+    <div class="gnz_reviews_box_fig">
+      <img class="w-full h-full  object-cover object-center rounded-full" src="https://picsum.photos/600/400" alt="Card image" >
+    </div>
+    <div class=" gnz_reviews_details" >
+     <h3>Kery & Downey</h3>
+     <h5>FRANCE</h5>
+    <p>I had an amazing 6 days trip and would definitely recommend this tour company to anyone traveling to Tanzania who wants to see serengeti animals and climb Mount Kilimanjaro. We learnt about Tanzania Hakuna Mtaka.</p>
+    </div>
+    </div>
+    
+    {{-- item2 --}}
+    <div class="relative rounded-lg overflow-hidden " >
+    <div class="gnz_reviews_box_fig">
+      <img class="w-full h-full  object-cover object-center rounded-full" src="https://picsum.photos/600/400" alt="Card image" >
+    </div>
+    <div class=" gnz_reviews_details" >
+     <h3>Kery & Downey</h3>
+     <h5>FRANCE</h5>
+    <p>I had an amazing 6 days trip and would definitely recommend this tour company to anyone traveling to Tanzania who wants to see serengeti animals and climb Mount Kilimanjaro. We learnt about Tanzania Hakuna Mtaka.</p>
+    </div>
+    </div>
+    {{-- item1 --}}
+    <div class="relative rounded-lg overflow-hidden -z-50" >
+    <div class="gnz_reviews_box_fig">
+      <img class="w-full h-full  object-cover object-center rounded-full" src="https://picsum.photos/600/400" alt="Card image" >
+    </div>
+    <div class=" gnz_reviews_details" >
+     <h3>Kery & Downey</h3>
+     <h5>FRANCE</h5>
+    <p>I had an amazing 6 days trip and would definitely recommend this tour company to anyone traveling to Tanzania who wants to see serengeti animals and climb Mount Kilimanjaro. We learnt about Tanzania Hakuna Mtaka.</p>
+    </div>
+    </div>
+    
+    </div>
+    
   </section>
   <!-- ====== Team Section End -->
+ 
+  
 
 {{-- test --}}
 
@@ -187,8 +238,8 @@ based="Based in Tanzania Mainland"
 
     document.addEventListener('alpine:init', () => {
         Alpine.data('dropdown', () => ({
-            showPackage: true,
-            showHeroSection: false,
+            showPackage: false,
+            showHeroSection: true,
             showTeam: false,
             showToggle() {
                 this.showPackage =! this.showPackage 
@@ -198,6 +249,7 @@ based="Based in Tanzania Mainland"
             showTeamToggle() {
                 this.showTeam =! this.showTeam 
                 this.showPackage = false
+                this.showHeroSection = false
             }
         }))
     })

@@ -1,0 +1,89 @@
+.gnz_reviews_box_fig {
+    float: none;
+    position: relative;
+    height: 115px;
+    width: 115px;
+    border-radius: 50%;
+    border: 2px solid rgba(48, 79, 71, 0.2);
+    margin: 0px auto -50px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.gnz_reviews_details {
+    width: 100%;
+    float: left;
+    background-color: #f6f2ee;
+    position: relative;
+    border: 1px solid rgba(48, 79, 71, 0.1);
+    z-index: 1;
+    border-radius: 30px;
+    padding: 50px 20px 20px;
+}
+
+.gnz_reviews_details h3 {
+    font-family: Quicksand, sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: inherit;
+    text-transform: capitalize;
+    color: rgb(57, 35, 42);
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.gnz_reviews_details h5 {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    line-height: inherit;
+    text-transform: capitalize;
+    color: rgb(165, 165, 165);
+    margin: 0px 0px 5px;
+    padding: 0px;
+}
+
+.gnz_reviews_details p {
+    font-size: 16px;
+    line-height: inherit;
+    color: rgb(115, 118, 121);
+    text-align: center;
+    font-weight: 400;
+    font-family: "Work Sans", sans-serif;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    min-height: 137px;
+}
+
+.gnz_heading {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.gnz_heading h6 {
+    font-family: Quicksand, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: rgb(247, 145, 29);
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0px;
+    padding: 0px 0px 15px;
+    line-height: 1;
+}
+
+.gnz_heading h2 {
+    font-family: Quicksand, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: rgb(2, 24, 31);
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0px;
+    padding: 0px 26%;
+    line-height: 1.2;
+}
