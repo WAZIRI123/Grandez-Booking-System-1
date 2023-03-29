@@ -196,35 +196,33 @@
             <h6>Our Traveller Say</h6>
             <h2>What Our Traveller Say About Us</h2>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-0 mx-4    place-items-center">
+        <div class="owl-carousel grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-0 mx-4 place-items-center">
             {{-- item1 --}}
-            <div class="relative rounded-lg overflow-hidden lg:w-80">
-                <div class="gnz_reviews_box_fig">
-                    <img class="w-full h-full  object-cover object-center rounded-full"
-                        src="https://picsum.photos/600/400" alt="Card image">
-                </div>
-                <div class=" gnz_reviews_details">
-                    <h3>Kery & Downey</h3>
-                    <h5>FRANCE</h5>
-                    <p>I had an amazing 6 days trip and would definitely recommend this tour company to anyone traveling
-                        to Tanzania who wants to see serengeti animals and climb Mount Kilimanjaro. We learnt about
-                        Tanzania Hakuna Mtaka.</p>
-                </div>
+            <div class="item relative rounded-lg overflow-hidden lg:w-80">
+              <div class="gnz_reviews_box_fig">
+                <img class="w-full h-full object-cover object-center rounded-full" src="https://picsum.photos/600/400" alt="Card image">
+              </div>
+              <div class="gnz_reviews_details">
+                <h3>Kery & Downey</h3>
+                <h5>FRANCE</h5>
+                <p>I had an amazing 6 days trip and would definitely recommend this tour company to anyone traveling
+                  to Tanzania who wants to see serengeti animals and climb Mount Kilimanjaro. We learnt about
+                  Tanzania Hakuna Mtaka.</p>
+              </div>
             </div>
-
+          
             {{-- item2 --}}
-            <div class="relative rounded-lg overflow-hidden lg:w-80">
-                <div class="gnz_reviews_box_fig">
-                    <img class="w-full h-full  object-cover object-center rounded-full"
-                        src="https://picsum.photos/600/400" alt="Card image">
-                </div>
-                <div class="gnz_reviews_details">
-                    <h3>Kery & Downey</h3>
-                    <h5>FRANCE</h5>
-                    <p>I had an amazing 6 days trip and would definitely recommend this tour company to anyone traveling
-                        to Tanzania who wants to see serengeti animals and climb Mount Kilimanjaro. We learnt about
-                        Tanzania Hakuna Mtaka.</p>
-                </div>
+            <div class="item relative rounded-lg overflow-hidden lg:w-80">
+              <div class="gnz_reviews_box_fig">
+                <img class="w-full h-full object-cover object-center rounded-full" src="https://picsum.photos/600/400" alt="Card image">
+              </div>
+              <div class="gnz_reviews_details">
+                <h3>Kery & Downey</h3>
+                <h5>FRANCE</h5>
+                <p>I had an amazing 6 days trip and would definitely recommend this tour company to anyone traveling
+                  to Tanzania who wants to see serengeti animals and climb Mount Kilimanjaro. We learnt about
+                  Tanzania Hakuna Mtaka.</p>
+              </div>
             </div>
             {{-- item1 --}}
             <div class="relative rounded-lg overflow-hidden lg:w-80">
