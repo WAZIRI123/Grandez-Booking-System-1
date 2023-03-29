@@ -133,7 +133,7 @@
     </section>
     
     <!-- ====== Team Section Start -->
-<section class=" pt-20 pb-10 lg:pt-[50px] lg:pb-20" x-show="showTeam" x-transition>
+<section class=" pt-20 pb-10 lg:pt-[50px] lg:pb-20" x-show="showTeam" x-transition >
  <div class="container mx-auto">
     <div class="space-y-2 flex flex-wrap items-center justify-between">
                 
@@ -187,9 +187,9 @@ based="Based in Tanzania Mainland"
     <h6>Our Traveller Say</h6>
     <h2>What Our Traveller Say About Us</h2>
 </div>
-<div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-4 mx-4">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-2 mx-4 place-items-center">
 {{-- item1 --}}
-<div class="relative rounded-lg overflow-hidden " >
+<div class="relative rounded-lg overflow-hidden lg:w-96" >
 <div class="gnz_reviews_box_fig">
   <img class="w-full h-full  object-cover object-center rounded-full" src="https://picsum.photos/600/400" alt="Card image" >
 </div>
@@ -201,18 +201,18 @@ based="Based in Tanzania Mainland"
 </div>
 
 {{-- item2 --}}
-<div class="relative rounded-lg overflow-hidden " >
+<div class="relative rounded-lg overflow-hidden lg:w-96 " >
 <div class="gnz_reviews_box_fig">
   <img class="w-full h-full  object-cover object-center rounded-full" src="https://picsum.photos/600/400" alt="Card image" >
 </div>
-<div class=" gnz_reviews_details" >
+<div class="gnz_reviews_details" >
  <h3>Kery & Downey</h3>
  <h5>FRANCE</h5>
 <p>I had an amazing 6 days trip and would definitely recommend this tour company to anyone traveling to Tanzania who wants to see serengeti animals and climb Mount Kilimanjaro. We learnt about Tanzania Hakuna Mtaka.</p>
 </div>
 </div>
 {{-- item1 --}}
-<div class="relative rounded-lg overflow-hidden -z-50" >
+<div class="relative rounded-lg overflow-hidden lg:w-96" >
 <div class="gnz_reviews_box_fig">
   <img class="w-full h-full  object-cover object-center rounded-full" src="https://picsum.photos/600/400" alt="Card image" >
 </div>
