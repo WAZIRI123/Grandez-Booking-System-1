@@ -1,6 +1,6 @@
 @props(['image', 'head', 'description', 'name', 'based','phone'])
 
-<div class="item relative rounded-lg overflow-hidden lg:w-80">
+<div class="item relative rounded-lg overflow-hidden lg:w-[280px]">
   <div class="gnz_reviews_box_fig">
     <img class="w-full h-full object-cover object-center rounded-full" src="{{ asset($image) }}" alt="{{ $name }}">
   </div>

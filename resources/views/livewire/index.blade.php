@@ -145,9 +145,8 @@
             </div>
         </div>
     </section>
-
     <!-- ====== Team Section Start -->
-<div class="mx-auto w-full" >
+<div class="mx-auto w-100" >
 <section class="gnz_about_us pt-20 pb-10 lg:pt-[50px] lg:pb-20"  x-show="showTeam" x-transition>
         <div class="container mx-auto">
             <div class="space-y-2 flex flex-wrap items-center justify-between">
@@ -165,7 +164,7 @@
                 </div>
 
             </div>
-            <div class="my-slider grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-2 mx-4 place-items-center">
+            <div class="gnz_review_card_grid my-slider grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-2 mx-4 place-items-center ">
 
                 <x-our-team image='storage/img/Team/justin shirima.JPG' head="Managing Director "
                     based="Based in Zanzibar" name="Justin SHIRIMA."
@@ -196,9 +195,9 @@
             <h6>Our Traveller Say</h6>
             <h2>What Our Traveller Say About Us</h2>
         </div>
-        <div class="my-slider grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-0 mx-4 place-items-center">
+        <div class=" gnz_review_card_grid my-slider grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 grid-rows-1 sm:grid-cols-2 gap-3 lg:gap-0 mx-4 place-items-center ">
             {{-- item1 --}}
-            <div class="item relative rounded-lg overflow-hidden lg:w-80">
+            <div class="item relative rounded-lg overflow-hidden lg:w-[280px]">
               <div class="gnz_reviews_box_fig">
                 <img class="w-full h-full object-cover object-center rounded-full" src="https://picsum.photos/600/400" alt="Card image">
               </div>
@@ -212,7 +211,7 @@
             </div>
           
             {{-- item2 --}}
-            <div class="item relative rounded-lg overflow-hidden lg:w-80">
+            <div class="item relative rounded-lg overflow-hidden  lg:w-[280px]">
               <div class="gnz_reviews_box_fig">
                 <img class="w-full h-full object-cover object-center rounded-full" src="https://picsum.photos/600/400" alt="Card image">
               </div>
@@ -225,7 +224,7 @@
               </div>
             </div>
             {{-- item1 --}}
-            <div class="relative rounded-lg overflow-hidden lg:w-80">
+            <div class="relative rounded-lg overflow-hidden lg:w-[280px]">
                 <div class="gnz_reviews_box_fig">
                     <img class="w-full h-full  object-cover object-center rounded-full"
                         src="https://picsum.photos/600/400" alt="Card image">

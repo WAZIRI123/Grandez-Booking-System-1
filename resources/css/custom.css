@@ -87,3 +87,10 @@
     padding: 0px 26%;
     line-height: 1.2;
 }
+
+@media (min-width: 1348px) {
+    .gnz_review_card_grid {
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+}
