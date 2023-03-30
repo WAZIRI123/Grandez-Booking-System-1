@@ -165,7 +165,7 @@
                 </div>
 
             </div>
-            <div class="-mx-4  flex flex-wrap">
+            <div class="my-slider grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-2 mx-4 place-items-center">
 
                 <x-our-team image='storage/img/Team/justin shirima.JPG' head="Managing Director "
                     based="Based in Zanzibar" name="Justin SHIRIMA."
@@ -196,7 +196,7 @@
             <h6>Our Traveller Say</h6>
             <h2>What Our Traveller Say About Us</h2>
         </div>
-        <div class="owl-carousel grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-0 mx-4 place-items-center">
+        <div class="my-slider grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-0 mx-4 place-items-center">
             {{-- item1 --}}
             <div class="item relative rounded-lg overflow-hidden lg:w-80">
               <div class="gnz_reviews_box_fig">

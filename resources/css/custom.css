@@ -87,10 +87,3 @@
     padding: 0px 26%;
     line-height: 1.2;
 }
-
-@media screen and (min-width: 1310px) {
-    .gnz_about_us {
-        margin-left: 180px !important;
-        margin-right: 180px !important;
-    }
-}
