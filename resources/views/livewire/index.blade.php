@@ -4,19 +4,19 @@
 
     <section class="my-4 relative " id="package" x-show="showPackage" x-transition>
 
-        <div class="container px-8 mx-auto space-y-10">
+        <div class="container gnz_review_card_grid px-8 mx-auto space-y-10">
 
-            <div class="space-y-2 flex flex-wrap items-center justify-between">
+            <div class="space-y-2 space-x-12 flex flex-wrap items-center justify-between  ">
 
-                <div>
+                <div class="gnz-card-header-desc">
                     <h1
                         class="sm:text-5xl text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">
                         Our Best Services </h1>
                     <p class="tracking-wide text-gray-600 sm:text-base text-sm">We offer the best services to accompany
                         your rest</p>
                 </div>
-                <div @click="showPackage = false; showHeroSection=true; showTeam = false;"
-                    class="btn bg-gray-200 hover:bg-gray-300  text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
+                <div  @click="showPackage = false; showHeroSection=true; showTeam = false;"
+                    class="  btn bg-gray-200 hover:bg-gray-300  text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg gnz-card-header_button">
                     <p class="tracking-wide text-gray-600 sm:text-base text-sm">Back </p>
                 </div>
 
@@ -146,21 +146,23 @@
         </div>
     </section>
     <!-- ====== Team Section Start -->
-<div class="mx-auto w-100" >
-<section class="gnz_about_us pt-20 pb-10 lg:pt-[50px] lg:pb-20"  x-show="showTeam" x-transition>
+<div class="mx-auto" >
+<section class="gnz_about_us pt-20 pb-10 lg:pt-[10px] lg:pb-20"  x-show="showTeam" x-transition>
         <div class="container mx-auto">
             <div class="space-y-2 flex flex-wrap items-center justify-between">
 
-                <div>
+                <div class="gnz-card-header-desc">
                     <h1
                         class="sm:text-5xl text-gray-800 text-3xl font-['poppins'] font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">
                         Our Best Services </h1>
                     <p class="tracking-wide text-gray-600 sm:text-base text-sm">We offer the best services to accompany
                         your rest</p>
                 </div>
-                <div @click="showPackage = false; showHeroSection=true; showTeam = false;"
-                    class="btn bg-gray-200 hover:bg-gray-300  text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
-                    <p class="tracking-wide text-gray-600 sm:text-base text-sm">Back </p>
+                <div class="gnz-card-header_button">
+                    <div @click="showPackage = false; showHeroSection=true; showTeam = false;"
+                        class=" btn bg-gray-200 hover:bg-gray-300  text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-tr-lg rounded-bl-lg py-2 px-4">
+                        <p class="tracking-wide text-gray-600 sm:text-base text-sm">Back </p>
+                    </div>
                 </div>
 
             </div>
