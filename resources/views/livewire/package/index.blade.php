@@ -678,7 +678,7 @@
                            </div>
                            <div class="form-control">
                                <label for="total_package" class="label" id="waziri" x-text="checked">{{ __('Numberof People') }} </label>
-                               <input class="w-full input" type="number" max="3" name="perPerson" wire:keyup="setTotalPrice" id="perPerson" value="" wire:model="perperson" />
+                               <input class="w-full input" type="number" name="perPerson" wire:keyup="setTotalPrice" id="perPerson" value="" wire:model="perperson" />
                            </div>
                            <!-- <div class="form-control">
                         <label for="activity" class="label">{{ __('Activity') }}</label>
@@ -755,7 +755,7 @@
                        </div>
                        <div class="form-control">
                            <label for="total_package" class="label" id="waziri" x-text="checked">{{ __('Numberof People') }} </label>
-                           <input class="w-full input" type="number" max="3" name="perPerson" wire:keyup="setTotalPrice" id="perPerson" value="" wire:model="perperson" />
+                           <input class="w-full input" type="number"  name="perPerson" wire:keyup="setTotalPrice" id="perPerson" value="" wire:model="perperson" />
                        </div>
                        <!-- <div class="form-control">
                         <label for="activity" class="label">{{ __('Activity') }}</label>
@@ -911,7 +911,7 @@
                            </div>
                            <div class="form-control">
                                <label for="total_package" class="label" id="waziri" x-text="checked">{{ __('Numberof People') }} </label>
-                               <input class="w-full input" type="number" name="perPerson" max="3" wire:keyup="setTotalPrice" id="perPerson" value="" wire:model="perperson" />
+                               <input class="w-full input" type="number" name="perPerson"  wire:keyup="setTotalPrice" id="perPerson" value="" wire:model="perperson" />
                            </div>
                            <!-- <div class="form-control">
                         <label for="activity" class="label">{{ __('Activity') }}</label>

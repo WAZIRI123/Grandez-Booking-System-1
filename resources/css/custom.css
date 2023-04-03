@@ -88,6 +88,19 @@
     line-height: 1.2;
 }
 
+#mklbl_wyus_sec {
+    width: 100%;
+    float: left;
+    position: relative;
+    padding: 100px 0 100px 0;
+    margin: 50px 0 10px 0;
+    background: linear-gradient(rgba(0, 0, 255, 0.5) 100%, rgba(0, 0, 255, 0.5) 100%), url(../../assets/images/why-us.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 @media (min-width: 1348px) {
     .gnz_review_card_grid {
         padding-right: 100px !important;

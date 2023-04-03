@@ -242,7 +242,65 @@
         </div>
     </section>
     </div>
-    <!-- ====== Team Section End -->
+    <!-- ====== Team Section End
+   
+    
+    -->
+
+    <section id="mklbl_wyus_sec">
+        <div class="container">
+            <div class="row align-items-center text-center">
+                <div class="mklbl_heading_cnt why-us">
+                    <h2>Why Travel With Us?</h2>
+                    <h6>Mkalibala Adventures</h6>
+                </div>
+                <div class="mklbl_wyus_sec_card">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="mklbl_wyus_box">
+                                <div class="mklbl_wyus_box_fig text-center">
+                                    <img src="assets/images/personalised-service.jpg">
+                                </div>
+                                <div class="mklbl_wyus_box_dtls">
+                                    <h4>Personalized Service</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="mklbl_wyus_box">
+                                <div class="mklbl_wyus_box_fig">
+                                    <img src="assets/images/dedicated-team.jpg">
+                                </div>
+                                <div class="mklbl_wyus_box_dtls">
+                                    <h4>Dedicated Team</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="mklbl_wyus_box">
+                                <div class="mklbl_wyus_box_fig">
+                                    <img src="assets/images/best-price.jpg">
+                                </div>
+                                <div class="mklbl_wyus_box_dtls">
+                                    <h4>Best Price Promise</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="mklbl_wyus_box">
+                                <div class="mklbl_wyus_box_fig">
+                                    <img src="assets/images/safety-priority.jpg">
+                                </div>
+                                <div class="mklbl_wyus_box_dtls">
+                                    <h4>Safety is Priority</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 </div>
