@@ -1,7 +1,17 @@
 <div>
 <div x-data="dropdown">
     <x-partials.herosec />
-
+    <div  class="pb-24 pt-24 flex justify-center items-center">
+        <div class="w-2/12">
+            <img src="{{ asset('img/mocks/left.png') }}" alt="">
+        </div>
+        <div class="rounded-lg overflow-hidden shadow w-2/3 sm:w-1/2">
+            <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/445554082?title=0&amp;byline=0&amp;portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="" data-ready="true"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        </div>
+        <div class="w-2/12">
+            <img src="{{ asset('img/mocks/right.png') }}" alt="">
+        </div>
+    </div>
     <section class="my-4 relative " id="package" x-show="showPackage" x-transition>
 
         <div class="container gnz_review_card_grid px-8 mx-auto space-y-10">

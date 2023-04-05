@@ -47,124 +47,84 @@ class Index extends Component
 
   public function setPrice()
   {
-    switch ($this->activity->id) {
-        // price of activity number 1   
-      case 1:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 120;
-            break;
-          case 3:
-            $this->price = 110;
-            break;
-            case '':
-              $this->price = 180;
-              break;
-          case $this->perperson > 3:
-            $this->price = 100;
-            break;
-          default:
-            $this->price =180;
-        }
-        break;
-        // price of activity number 2
-      case 2:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 80;
-            break;
-          case 3:
-            $this->price = 65;
-            break;
-            case '':
-              $this->price = 95;
-              break;
-          case $this->perperson > 3:
-            $this->price = 55;
-            break;
-          default:
-            $this->price = 95;
-        }
-        break;
-        // price of activity number 3
-      case 3:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 85;
-            break;
-          case 3:
-            $this->price = 75;
-            break;
-            case '':
-              $this->price = 125;
-              break;
-          case $this->perperson > 3:
-            $this->price = 65;
-            break;
-          default:
-            $this->price = 125;
-        }
-        break;
-        // price of activity number 4
-      case 4:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 80;
-            break;
-          case 3:
-            $this->price = 70;
-            break;
-            case '':
-              $this->price = 120;
-              break;
-          case $this->perperson > 3:
-            $this->price = 65;
-            break;
-          default:
-            $this->price = 120;
-        }
-        break;
-        // price of activity number 5
-      case 5:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 70;
-            break;
-          case 3:
-            $this->price = 60;
-            break;
-            case '':
-              $this->price = 90;
-              break;
-          case $this->perperson > 3:
-            $this->price = 50;
-            break;
-          default:
-            $this->price = 90;
-        }
-        break;
-        // price of activity number 6
-      case 6:
-        switch ($this->perperson) {
-          case 2:
-            $this->price = 125;
-            break;
-          case 3:
-            $this->price = 95;
-            break;
-            case '':
-              $this->price = 160;
-              break;
-          case $this->perperson > 3:
-            $this->price = 85;
-            break;
-          default:
-            $this->price = 160;
-        }
-        break;
+      $prices = [
+        //SAFARIBLUE
+          1 => [
+              1 => 190,
+              2 => 150,
+              3 => 130,
+              'gt4'=> 105,
+              'gt10'=> 85,
+          ],
+          // add more activities here with their respective prices
+//NUNGWIDHOWSUNSETCRUISE
+          2 => [
+            1 => 115,
+            2 => 95,
+            3 => 80,
+            'gt4'=> 70,
+            'gt10'=> 60,
+        ],
+
+//PRISON ISLAND TOUR
+        3 => [
+          1 => 140,
+          2 => 95,
+          3 => 85,
+          'gt4'=> 75,
+          'gt10'=> 65,
+      ],
+//MNEMBAISLAND
+
+      4 => [
+        1 => 190,
+        2 => 150,
+        3 =>130,
+        'gt4'=> 105,
+        'gt10'=> 85,
+    ],
+//SPICE TOUR
+    5 => [
+      1 => 100,
+      2 => 85,
+      3 =>75,
+      'gt4'=> 65,
+      'gt10'=> 55,
+  ],
+
+  //NAKUPENDA ISLAND
+  6 => [
+    1 => 170,
+    2 => 140,
+    3 =>105,
+    'gt4'=> 95,
+    'gt10'=> 85,
+],
+
+      ];
+  
+      $activityId = $this->activity->id;
+      $numPersons = $this->perperson;
+  
+      if (!isset($prices[$activityId])) {
+          // handle unknown activity ID
+          $this->price = 0;
+      } elseif ($numPersons >= 4 && $numPersons <= 9) {
+          $this->price = $prices[$activityId]['gt4'];
+      } 
+      elseif ($numPersons >= 10) {
+        $this->price = $prices[$activityId]['gt10'];
     }
-    $this->setTotalPrice();
+      elseif (!isset($prices[$activityId][$numPersons])) {
+          // handle unknown number of persons for this activity
+          $this->price = 0;
+      } else {
+          $this->price = $prices[$activityId][$numPersons];
+      }
+  
+      $this->setTotalPrice();
   }
+  
   public function lastpage(){
 
     session(['activity' => $this->activity->slug]);

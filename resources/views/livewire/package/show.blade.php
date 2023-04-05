@@ -8,7 +8,9 @@
                 </div>
             </div>
             <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-10">
+               
                 @foreach ($packagies as $package)
+               
                 <div class="space-y-4">
                     <div class="aspect-[5/4] rounded-tr-2xl rounded-bl-2xl overflow-hidden">
                         <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="{{ asset("storage/$package->image") }}" alt="{{ $package->name }}">

@@ -17,15 +17,15 @@ class CarRentalSeeder extends Seeder
         $cars = [
             [
                 'Toyata Ist',
-                '35',
-            ],
-            [
-                'Nissan Xtrail',
                 '45',
             ],
             [
+                'Nissan Xtrail',
+                '55',
+            ],
+            [
                 'Suzuki Grand Vitara',
-                '50',
+                '60',
             ],
             [
                 'Toyota Rav4',
@@ -33,11 +33,11 @@ class CarRentalSeeder extends Seeder
             ],
             [
                 'Toyota Alphard',
-                '75',
+                '85',
             ],
             [
                 'Toyota Prado(2007)',
-                '100',
+                '110',
             ],
     
         ];
